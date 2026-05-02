@@ -13,7 +13,7 @@ export default function Hero() {
           </div>
         </div>
         <div className="w-48 h-28 bg-gradient-to-br from-red-600 to-pink-500 rounded-md flex items-center justify-center">
-          <span className="font-bold">Server: gamingop.qzz.io</span>
+          <span className="font-bold">Server: mc.gamingop.qzz.io</span>
         </div>
       </div>
     </div>
