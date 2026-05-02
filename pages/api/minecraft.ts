@@ -15,7 +15,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
     res.setHeader('Cache-Control', 's-maxage=15, stale-while-revalidate=60')
     return res.status(200).json(out)
-  } catch (e) {
+  } catch {
     return res.status(502).json({ error: 'server api error' })
   }
 }

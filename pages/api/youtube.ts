@@ -25,7 +25,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const data = await r.json()
     res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate=300')
     return res.status(200).json(data)
-  } catch (e) {
+  } catch {
     return res.status(502).json({ error: 'yt fetch error' })
   }
 }
