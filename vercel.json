@@ -1,9 +1,19 @@
 {
-  "version": 2,
-  "builds": [
-    { "src": "next.config.js", "use": "@vercel/next" }
-  ],
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "routes": [
-    { "src": "/api/(.*)", "dest": "/api/$1" }
+    {
+      "src": "/(.*)",
+      "dest": "https://my-secure-proxied-dashboard.com/$1",
+      "transforms": [
+        {
+          "type": "request.headers",
+          "op": "set",
+          "target": {
+            "key": "x-using-vercel-cdn"
+          },
+          "args": "@x-using-vercel-cdn-secret"
+        }
+      ]
+    }
   ]
 }
