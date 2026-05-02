@@ -1,5 +1,5 @@
 const fs = require('fs')
-const base = process.env.SITE_URL || 'https://gamingop.example.com'
+const base = process.env.SITE_URL || 'https://gamingop.qzz.io'
 
 const staticPages = ['/', '/about', '/youtube']
 

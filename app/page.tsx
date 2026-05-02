@@ -60,7 +60,7 @@ export default async function Home() {
           <DiscordWidget />
           <section>
             <h2 className="text-2xl font-bold mb-4">Minecraft Server</h2>
-            <ServerStatus server="gamingop.qzz.io" />
+            <ServerStatus server="mc.gamingop.qzz.io" />
           </section>
         </aside>
       </div>
