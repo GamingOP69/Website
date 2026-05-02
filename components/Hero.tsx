@@ -18,6 +18,7 @@ function formatCount(n: string | null): string {
   return String(num)
 }
 
+
 function CopyIPButton({ ip }: { ip: string }) {
   const [copied, setCopied] = useState(false)
   const handleCopy = () => {
