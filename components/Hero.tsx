@@ -18,6 +18,28 @@ function formatCount(n: string | null): string {
   return String(num)
 }
 
+function CopyIPButton({ ip }: { ip: string }) {
+  const [copied, setCopied] = useState(false)
+  const handleCopy = () => {
+    navigator.clipboard.writeText(ip).then(() => {
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    })
+  }
+  return (
+    <button
+      onClick={handleCopy}
+      className="w-full mt-2 flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-white/5 hover:bg-white/10 border border-gray-700 hover:border-primary text-sm font-mono text-gray-300 hover:text-white transition-all duration-200"
+    >
+      {copied ? (
+        <>✅ <span>Copied!</span></>
+      ) : (
+        <>📋 <span>Copy IP: {ip}</span></>
+      )}
+    </button>
+  )
+}
+
 export default function Hero() {
   const [stats, setStats] = useState<ChannelStats | null>(null)
 
@@ -95,16 +117,16 @@ export default function Hero() {
                   <div className="space-y-2">
                     <p className="text-sm text-gray-400 uppercase tracking-wider">Minecraft Server</p>
                     <p className="text-2xl sm:text-3xl font-bold font-mono bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                      gamingop.qzz.io
+                      mc.gamingop.qzz.io
                     </p>
                   </div>
                   <div className="h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
-                  <div className="pt-4">
+                  <CopyIPButton ip="mc.gamingop.qzz.io" />
+                  <div className="pt-2">
                     <a href="/server-status" className="inline-block btn btn-primary px-6">
                       Check Server Status
                     </a>
                   </div>
-                  <p className="text-xs text-gray-500">Click to copy server IP</p>
                 </div>
               </div>
             </div>
