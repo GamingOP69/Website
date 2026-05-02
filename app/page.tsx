@@ -77,7 +77,7 @@ export default function Home() {
   }, [])
 
   return (
-    <main className="py-6 sm:py-8 space-y-12 sm:space-y-16">
+    <main className="py-6 sm:py-10 space-y-14 sm:space-y-20">
       <header className="animate-fade-in">
         <Hero />
       </header>
@@ -85,7 +85,7 @@ export default function Home() {
       <section className="animate-fade-in">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-3">
           <h2 className="heading-lg">Latest Videos</h2>
-          {loading && <span className="text-xs text-gray-400 animate-pulse-subtle">Loading videos...</span>}
+          {loading && <span className="text-xs text-gray-400 animate-pulse-subtle">Loading videos…</span>}
         </div>
         {videos.length > 0 ? (
           <PopularVideos videos={videos} />
@@ -96,15 +96,10 @@ export default function Home() {
         )}
       </section>
 
-      <section className="animate-fade-in">
-        <h2 className="heading-lg mb-6 sm:mb-8">Trending Now</h2>
-        <PopularVideos videos={videos.slice(0, 4)} />
-      </section>
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 animate-fade-in">
-        <div className="lg:col-span-2 space-y-8 sm:space-y-12">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10 animate-fade-in">
+        <div className="lg:col-span-2 space-y-10 sm:space-y-14">
           <section>
-            <h2 className="heading-lg mb-6 sm:mb-8">Community & Events</h2>
+            <h2 className="heading-lg mb-6 sm:mb-8">Community &amp; Events</h2>
             <EventsList />
           </section>
 
@@ -115,11 +110,11 @@ export default function Home() {
         </div>
 
         <aside className="space-y-6">
-          <div className="sticky top-24">
+          <div className="sticky top-24 space-y-6">
             <DiscordWidget />
-            <section className="mt-6">
+            <section>
               <h2 className="heading-md mb-4">Minecraft Server</h2>
-              <ServerStatus server="gamingop.qzz.io" />
+              <ServerStatus server="mc.gamingop.qzz.io" />
             </section>
           </div>
         </aside>
