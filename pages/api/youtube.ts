@@ -8,6 +8,27 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const max = Number(req.query.max || 8)
   const mode = String(req.query.mode || 'latest')
 
+  if (mode === 'stats') {
+    const statsUrl = `https://www.googleapis.com/youtube/v3/channels?key=${key}&id=${channel}&part=statistics,snippet`
+    try {
+      const r = await fetch(statsUrl)
+      if (!r.ok) return res.status(502).json({ error: 'yt fetch failed' })
+      const data = await r.json()
+      const ch = data.items && data.items[0]
+      if (!ch) return res.status(404).json({ error: 'channel not found' })
+      res.setHeader('Cache-Control', 's-maxage=300, stale-while-revalidate=600')
+      return res.status(200).json({
+        subscriberCount: ch.statistics.hiddenSubscriberCount ? null : ch.statistics.subscriberCount,
+        videoCount: ch.statistics.videoCount,
+        viewCount: ch.statistics.viewCount,
+        title: ch.snippet.title,
+        thumbnail: ch.snippet.thumbnails?.default?.url,
+      })
+    } catch {
+      return res.status(502).json({ error: 'yt fetch error' })
+    }
+  }
+
   let url = ''
   if (mode === 'latest') {
     url = `https://www.googleapis.com/youtube/v3/search?key=${key}&channelId=${channel}&part=snippet,id&order=date&maxResults=${max}`
