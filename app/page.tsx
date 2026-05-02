@@ -8,54 +8,11 @@ import DiscordWidget from '../components/DiscordWidget'
 import EventsList from '../components/EventsList'
 import ContactForm from '../components/ContactForm'
 
-const DEMO_VIDEOS = [
-  {
-    id: { videoId: 'dQw4w9WgXcQ' },
-    snippet: {
-      title: 'Epic Minecraft Speedrun Challenge',
-      thumbnails: { medium: { url: 'https://images.unsplash.com/photo-1538481527238-91b2f8fda571?w=400&h=225&fit=crop' } }
-    }
-  },
-  {
-    id: { videoId: 'jNQXAC9IVRw' },
-    snippet: {
-      title: 'Free Fire Tournament Finals 2024',
-      thumbnails: { medium: { url: 'https://images.unsplash.com/photo-1508394519177-169a6ad63d4b?w=400&h=225&fit=crop' } }
-    }
-  },
-  {
-    id: { videoId: '9bZkp7q19f0' },
-    snippet: {
-      title: 'Valorant Ranked Gameplay Highlights',
-      thumbnails: { medium: { url: 'https://images.unsplash.com/photo-1493711662714-5c526b5cb519?w=400&h=225&fit=crop' } }
-    }
-  },
-  {
-    id: { videoId: 'V-_O7gl_IFg' },
-    snippet: {
-      title: 'Minecraft Server Tour & Update',
-      thumbnails: { medium: { url: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=225&fit=crop' } }
-    }
-  },
-  {
-    id: { videoId: 'tYzMGcUty6s' },
-    snippet: {
-      title: 'Gaming Setup Reveal 2024',
-      thumbnails: { medium: { url: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=225&fit=crop' } }
-    }
-  },
-  {
-    id: { videoId: 'ZZ5txp34G7c' },
-    snippet: {
-      title: 'Stream Highlights Compilation',
-      thumbnails: { medium: { url: 'https://images.unsplash.com/photo-1535905557558-afc4877a26fc?w=400&h=225&fit=crop' } }
-    }
-  }
-]
-
 export default function Home() {
-  const [videos, setVideos] = useState<any[]>(DEMO_VIDEOS)
+  const [videos, setVideos] = useState<any[]>([])
+  const [trending, setTrending] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
+  const [trendingLoading, setTrendingLoading] = useState(true)
 
   useEffect(() => {
     async function fetchVideos() {
@@ -76,6 +33,25 @@ export default function Home() {
     fetchVideos()
   }, [])
 
+  useEffect(() => {
+    async function fetchTrending() {
+      try {
+        const response = await fetch('/api/trending')
+        if (response.ok) {
+          const data = await response.json()
+          if (data.items?.length) {
+            setTrending(data.items.slice(0, 4))
+          }
+        }
+      } catch (error) {
+        console.error('Failed to fetch trending videos:', error)
+      } finally {
+        setTrendingLoading(false)
+      }
+    }
+    fetchTrending()
+  }, [])
+
   return (
     <main className="py-6 sm:py-10 space-y-14 sm:space-y-20">
       <header className="animate-fade-in">
@@ -87,12 +63,26 @@ export default function Home() {
           <h2 className="heading-lg">Latest Videos</h2>
           {loading && <span className="text-xs text-gray-400 animate-pulse-subtle">Loading videos…</span>}
         </div>
-        {videos.length > 0 ? (
-          <PopularVideos videos={videos} />
-        ) : (
+        {!loading && videos.length === 0 ? (
           <div className="glass p-8 sm:p-12 rounded-xl text-center">
             <p className="text-gray-400">No videos available. Check back soon!</p>
           </div>
+        ) : (
+          <PopularVideos videos={videos} />
+        )}
+      </section>
+
+      <section className="animate-fade-in">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-3">
+          <h2 className="heading-lg">Trending Now</h2>
+          {trendingLoading && <span className="text-xs text-gray-400 animate-pulse-subtle">Loading…</span>}
+        </div>
+        {!trendingLoading && trending.length === 0 ? (
+          <div className="glass p-8 sm:p-12 rounded-xl text-center">
+            <p className="text-gray-400">No trending videos right now.</p>
+          </div>
+        ) : (
+          <PopularVideos videos={trending} />
         )}
       </section>
 
@@ -122,3 +112,4 @@ export default function Home() {
     </main>
   )
 }
+

@@ -1,7 +1,23 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
+
+type ChannelStats = {
+  subscriberCount: string | null
+  videoCount: string
+  viewCount: string
+  title: string
+}
+
+function formatCount(n: string | null): string {
+  if (!n) return '—'
+  const num = Number(n)
+  if (num >= 1_000_000) return (num / 1_000_000).toFixed(1).replace(/\.0$/, '') + 'M'
+  if (num >= 1_000) return (num / 1_000).toFixed(1).replace(/\.0$/, '') + 'K'
+  return String(num)
+}
+
 
 function CopyIPButton({ ip }: { ip: string }) {
   const [copied, setCopied] = useState(false)
@@ -26,6 +42,15 @@ function CopyIPButton({ ip }: { ip: string }) {
 }
 
 export default function Hero() {
+  const [stats, setStats] = useState<ChannelStats | null>(null)
+
+  useEffect(() => {
+    fetch('/api/youtube?mode=stats')
+      .then((r) => r.ok ? r.json() : null)
+      .then((data) => { if (data && !data.error) setStats(data) })
+      .catch((err) => console.error('Failed to fetch channel stats:', err))
+  }, [])
+
   return (
     <div className="mb-12 animate-fade-in">
       <div className="glass rounded-2xl overflow-hidden">
@@ -67,11 +92,15 @@ export default function Hero() {
               {/* Stats */}
               <div className="grid grid-cols-3 gap-4 pt-6">
                 <div className="card text-center">
-                  <p className="text-2xl sm:text-3xl font-bold text-primary">100K+</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-primary">
+                    {stats ? formatCount(stats.subscriberCount) : '…'}
+                  </p>
                   <p className="text-sm text-gray-400">Subscribers</p>
                 </div>
                 <div className="card text-center">
-                  <p className="text-2xl sm:text-3xl font-bold text-accent">50+</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-accent">
+                    {stats ? formatCount(stats.videoCount) : '…'}
+                  </p>
                   <p className="text-sm text-gray-400">Videos</p>
                 </div>
                 <div className="card text-center">
