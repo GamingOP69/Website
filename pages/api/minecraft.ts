@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const server = String(req.query.server || 'gamingop.qzz.io')
+  const server = String(req.query.server || 'mc.gamingop.qzz.io')
   const url = `https://api.mcsrvstat.us/2/${encodeURIComponent(server)}`
   try {
     const r = await fetch(url)
