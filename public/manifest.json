@@ -1,0 +1,59 @@
+{
+  "name": "GamingOP",
+  "short_name": "GamingOP",
+  "description": "GamingOP - Gaming Creator & Minecraft Server Community Hub",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0f14",
+  "theme_color": "#ff3b3b",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Watch Videos",
+      "short_name": "Videos",
+      "description": "Watch all GamingOP videos",
+      "url": "/youtube",
+      "icons": [
+        { "src": "/favicon-96.png", "sizes": "96x96" }
+      ]
+    },
+    {
+      "name": "Join Server",
+      "short_name": "Server",
+      "description": "Join the Minecraft server",
+      "url": "/server-status",
+      "icons": [
+        { "src": "/favicon-96.png", "sizes": "96x96" }
+      ]
+    },
+    {
+      "name": "Discord",
+      "short_name": "Discord",
+      "description": "Join our Discord community",
+      "url": "https://discord.gg/Ezd32s4P8H",
+      "icons": [
+        { "src": "/favicon-96.png", "sizes": "96x96" }
+      ]
+    }
+  ]
+}

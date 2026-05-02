@@ -1,28 +1,221 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root{
+:root {
   --bg: #0b0f14;
   --accent: #ff3b3b;
 }
 
-html,body,#__next{height:100%}
-
-body{background:var(--bg);font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto}
-
-.glass{
-  background: rgba(255,255,255,0.03);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,255,255,0.04);
+html {
+  scroll-behavior: smooth;
 }
 
-.btn{@apply inline-flex items-center justify-center px-4 py-2 rounded-md font-semibold}
-.btn-primary{background:var(--accent);color:white}
-.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.04)}
+html, body, #__next {
+  height: 100%;
+}
 
-.card{@apply glass p-4 rounded-lg}
+body {
+  background: var(--bg);
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+}
+
+.glass-hover {
+  @apply glass transition-all duration-300 hover:bg-opacity-10 hover:shadow-glow;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center px-4 py-2 rounded-lg font-semibold transition-all duration-200;
+}
+
+.btn-primary {
+  @apply btn bg-primary text-white hover:bg-accent shadow-glow hover:shadow-glow-lg;
+}
+
+.btn-ghost {
+  @apply btn bg-transparent border border-gray-700 text-white hover:bg-white/10;
+}
+
+.btn-sm {
+  @apply px-3 py-1.5 text-sm;
+}
+
+.btn-lg {
+  @apply px-6 py-3 text-lg;
+}
+
+.card {
+  @apply glass p-5 rounded-lg;
+}
+
+/* Smooth fade-in animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out;
+}
+
+.animate-slide-in {
+  animation: slide-in-left 0.6s ease-out;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Responsive text */
+@screen sm {
+  .heading-lg {
+    font-size: 2.5rem;
+  }
+}
+
+@screen md {
+  .heading-lg {
+    font-size: 3rem;
+  }
+}
+
+/* Premium scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 59, 59, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 59, 59, 0.8);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-color: rgba(255, 59, 59, 0.5) rgba(0, 0, 0, 0.2);
+  scrollbar-width: thin;
+}
+
+/* Video responsive aspect ratio */
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+/* Gradient text effect */
+.gradient-text {
+  background: linear-gradient(135deg, #ff3b3b 0%, #ff6b6b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@layer components {
+  /* Premium heading styles */
+  .heading,
+  .heading-xl,
+  .heading-lg,
+  .heading-md {
+    font-family: Poppins, Inter, system-ui;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
+  .heading-xl {
+    @apply text-3xl sm:text-4xl lg:text-5xl;
+  }
+
+  .heading-lg {
+    @apply text-2xl sm:text-3xl lg:text-4xl;
+  }
+
+  .heading-md {
+    @apply text-xl sm:text-2xl;
+  }
+}
+
+/* Link styles */
+a {
+  @apply text-primary hover:text-accent transition-colors;
+}
+
+/* Input styles */
+input, textarea, select {
+  @apply bg-black/30 border border-gray-700 rounded-lg p-2.5 text-white placeholder-gray-500 focus:border-primary focus:ring-1 focus:ring-primary transition-all;
+}
+
+/* Mobile-first responsive utilities */
+@screen sm {
+  .sm\:gap-6 {
+    gap: 1.5rem;
+  }
+}
+
+@screen md {
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@screen lg {
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@screen xl {
+  .xl\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
 
