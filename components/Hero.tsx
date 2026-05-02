@@ -1,9 +1,56 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 
+type ChannelStats = {
+  subscriberCount: string | null
+  videoCount: string
+  viewCount: string
+  title: string
+}
+
+function formatCount(n: string | null): string {
+  if (!n) return '—'
+  const num = Number(n)
+  if (num >= 1_000_000) return (num / 1_000_000).toFixed(1).replace(/\.0$/, '') + 'M'
+  if (num >= 1_000) return (num / 1_000).toFixed(1).replace(/\.0$/, '') + 'K'
+  return String(num)
+}
+
+
+function CopyIPButton({ ip }: { ip: string }) {
+  const [copied, setCopied] = useState(false)
+  const handleCopy = () => {
+    navigator.clipboard.writeText(ip).then(() => {
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    })
+  }
+  return (
+    <button
+      onClick={handleCopy}
+      className="w-full mt-2 flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-white/5 hover:bg-white/10 border border-gray-700 hover:border-primary text-sm font-mono text-gray-300 hover:text-white transition-all duration-200"
+    >
+      {copied ? (
+        <>✅ <span>Copied!</span></>
+      ) : (
+        <>📋 <span>Copy IP: {ip}</span></>
+      )}
+    </button>
+  )
+}
+
 export default function Hero() {
+  const [stats, setStats] = useState<ChannelStats | null>(null)
+
+  useEffect(() => {
+    fetch('/api/youtube?mode=stats')
+      .then((r) => r.ok ? r.json() : null)
+      .then((data) => { if (data && !data.error) setStats(data) })
+      .catch((err) => console.error('Failed to fetch channel stats:', err))
+  }, [])
+
   return (
     <div className="mb-12 animate-fade-in">
       <div className="glass rounded-2xl overflow-hidden">
@@ -45,11 +92,15 @@ export default function Hero() {
               {/* Stats */}
               <div className="grid grid-cols-3 gap-4 pt-6">
                 <div className="card text-center">
-                  <p className="text-2xl sm:text-3xl font-bold text-primary">100K+</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-primary">
+                    {stats ? formatCount(stats.subscriberCount) : '…'}
+                  </p>
                   <p className="text-sm text-gray-400">Subscribers</p>
                 </div>
                 <div className="card text-center">
-                  <p className="text-2xl sm:text-3xl font-bold text-accent">50+</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-accent">
+                    {stats ? formatCount(stats.videoCount) : '…'}
+                  </p>
                   <p className="text-sm text-gray-400">Videos</p>
                 </div>
                 <div className="card text-center">
@@ -67,16 +118,16 @@ export default function Hero() {
                   <div className="space-y-2">
                     <p className="text-sm text-gray-400 uppercase tracking-wider">Minecraft Server</p>
                     <p className="text-2xl sm:text-3xl font-bold font-mono bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                      gamingop.qzz.io
+                      mc.gamingop.qzz.io
                     </p>
                   </div>
                   <div className="h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
-                  <div className="pt-4">
+                  <CopyIPButton ip="mc.gamingop.qzz.io" />
+                  <div className="pt-2">
                     <a href="/server-status" className="inline-block btn btn-primary px-6">
                       Check Server Status
                     </a>
                   </div>
-                  <p className="text-xs text-gray-500">Click to copy server IP</p>
                 </div>
               </div>
             </div>
