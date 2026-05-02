@@ -17,10 +17,10 @@ export default function ContactForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, message })
       })
-      const data = await r.json()
+      await r.json()
       if (r.ok) setStatus('sent')
       else setStatus('error')
-    } catch (err) {
+    } catch {
       setStatus('error')
     }
   }
