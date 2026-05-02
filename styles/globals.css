@@ -1,0 +1,28 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --bg: #0b0f14;
+  --accent: #ff3b3b;
+}
+
+html,body,#__next{height:100%}
+
+body{background:var(--bg);font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto}
+
+.glass{
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+.btn{@apply inline-flex items-center justify-center px-4 py-2 rounded-md font-semibold}
+.btn-primary{background:var(--accent);color:white}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.04)}
+
+.card{@apply glass p-4 rounded-lg}
+
