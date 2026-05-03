@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
 import Hero from '../components/Hero'
 import ServerStatus from '../components/ServerStatus'
 import PopularVideos from '../components/PopularVideos'
@@ -61,11 +62,24 @@ export default function Home() {
       <section className="animate-fade-in">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-3">
           <h2 className="heading-lg">Latest Videos</h2>
-          {loading && <span className="text-xs text-gray-400 animate-pulse-subtle">Loading videos…</span>}
+          <Link href="/youtube" className="text-sm text-primary hover:text-accent transition no-underline">View all videos →</Link>
         </div>
-        {!loading && videos.length === 0 ? (
-          <div className="glass p-8 sm:p-12 rounded-xl text-center">
+        {loading ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+            {Array.from({ length: 8 }).map((_, i) => (
+              <div key={i} className="glass rounded-xl overflow-hidden animate-pulse-subtle">
+                <div className="h-44 bg-white/5"></div>
+                <div className="p-4 space-y-2">
+                  <div className="h-3 bg-white/5 rounded w-3/4"></div>
+                  <div className="h-3 bg-white/5 rounded w-1/2"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : videos.length === 0 ? (
+          <div className="glass p-8 sm:p-12 rounded-xl text-center space-y-3">
             <p className="text-gray-400">No videos available. Check back soon!</p>
+          <a href="https://youtube.com/@gamingop-1m?si=qZfx45xAKVPyR4gy" target="_blank" rel="noopener noreferrer" className="inline-block btn btn-primary text-sm no-underline">▶ Watch on YouTube</a>
           </div>
         ) : (
           <PopularVideos videos={videos} />
@@ -75,9 +89,20 @@ export default function Home() {
       <section className="animate-fade-in">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-3">
           <h2 className="heading-lg">Trending Now</h2>
-          {trendingLoading && <span className="text-xs text-gray-400 animate-pulse-subtle">Loading…</span>}
         </div>
-        {!trendingLoading && trending.length === 0 ? (
+        {trendingLoading ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <div key={i} className="glass rounded-xl overflow-hidden animate-pulse-subtle">
+                <div className="h-44 bg-white/5"></div>
+                <div className="p-4 space-y-2">
+                  <div className="h-3 bg-white/5 rounded w-3/4"></div>
+                  <div className="h-3 bg-white/5 rounded w-1/2"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : trending.length === 0 ? (
           <div className="glass p-8 sm:p-12 rounded-xl text-center">
             <p className="text-gray-400">No trending videos right now.</p>
           </div>
@@ -93,7 +118,7 @@ export default function Home() {
             <EventsList />
           </section>
 
-          <section>
+          <section id="contact">
             <h2 className="heading-lg mb-6 sm:mb-8">Get In Touch</h2>
             <ContactForm />
           </section>

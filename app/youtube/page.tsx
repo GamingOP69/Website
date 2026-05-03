@@ -1,7 +1,12 @@
 import React from 'react'
-import SEO from '../../components/SEO'
+import { Metadata } from 'next'
 import VideoLister from '../../components/VideoLister'
 import { fetchLatestVideos } from '../../lib/youtube'
+
+export const metadata: Metadata = {
+  title: 'Videos – GamingOP',
+  description: 'Watch all GamingOP videos — Minecraft, Free Fire, Valorant and more.',
+}
 
 export default async function YoutubeIndex() {
   const key = process.env.YT_API_KEY || ''
@@ -15,9 +20,13 @@ export default async function YoutubeIndex() {
   }
 
   return (
-    <main className="py-8">
-      <SEO title="Videos" description="All GamingOP videos" />
-      <h1 className="text-3xl font-bold mb-4">Videos</h1>
+    <main className="py-8 sm:py-12">
+      <div className="mb-8 sm:mb-10">
+        <h1 className="heading-xl text-white mb-2">All Videos</h1>
+        <p className="text-gray-400 text-sm sm:text-base">
+          Browse the latest GamingOP content. Search by game or topic below.
+        </p>
+      </div>
       <VideoLister initial={videos} />
     </main>
   )

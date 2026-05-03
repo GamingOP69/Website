@@ -22,7 +22,7 @@ export default function TermsPage() {
           </div>
 
           <Section title="1. Acceptance of Terms">
-            <p>By accessing or using the GamingOP website at gamingop.com (the "Site"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use the Site.</p>
+            <p>By accessing or using the GamingOP website at gamingop.com (the &ldquo;Site&rdquo;), you agree to be bound by these Terms of Service (&ldquo;Terms&rdquo;). If you do not agree to these Terms, please do not use the Site.</p>
           </Section>
 
           <Section title="2. Use of the Site">
@@ -37,7 +37,7 @@ export default function TermsPage() {
 
           <Section title="3. Intellectual Property">
             <p>All content on this Site, including but not limited to text, graphics, logos, images, and video content, is the property of GamingOP or its respective owners and is protected by applicable intellectual property laws.</p>
-            <p>YouTube content embedded on this Site is subject to YouTube's Terms of Service and remains the property of GamingOP or the respective rights holders.</p>
+            <p>YouTube content embedded on this Site is subject to YouTube&apos;s Terms of Service and remains the property of GamingOP or the respective rights holders.</p>
           </Section>
 
           <Section title="4. Minecraft Server">
@@ -51,7 +51,7 @@ export default function TermsPage() {
           </Section>
 
           <Section title="5. Disclaimer of Warranties">
-            <p>The Site is provided "as is" and "as available" without any warranties of any kind, express or implied. We do not warrant that the Site will be uninterrupted, error-free, or free of viruses or other harmful components.</p>
+            <p>The Site is provided &ldquo;as is&rdquo; and &ldquo;as available&rdquo; without any warranties of any kind, express or implied. We do not warrant that the Site will be uninterrupted, error-free, or free of viruses or other harmful components.</p>
           </Section>
 
           <Section title="6. Limitation of Liability">

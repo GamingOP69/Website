@@ -22,7 +22,7 @@ export default function PrivacyPage() {
           </div>
 
           <Section title="1. Introduction">
-            <p>Welcome to GamingOP ("we," "our," or "us"). This Privacy Policy explains how we collect, use, and protect information when you visit our website at gamingop.com (the "Site"). By using our Site, you agree to the practices described in this policy.</p>
+            <p>Welcome to GamingOP (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;). This Privacy Policy explains how we collect, use, and protect information when you visit our website at gamingop.com (the &ldquo;Site&rdquo;). By using our Site, you agree to the practices described in this policy.</p>
           </Section>
 
           <Section title="2. Information We Collect">
@@ -52,7 +52,7 @@ export default function PrivacyPage() {
           </Section>
 
           <Section title="5. Data Retention">
-            <p>Contact form submissions are retained only as long as necessary to respond to your inquiry. Analytics data is retained per Vercel's standard policies. We do not sell or share your personal information with third parties for marketing purposes.</p>
+            <p>Contact form submissions are retained only as long as necessary to respond to your inquiry. Analytics data is retained per Vercel&apos;s standard policies. We do not sell or share your personal information with third parties for marketing purposes.</p>
           </Section>
 
           <Section title="6. Your Rights">
