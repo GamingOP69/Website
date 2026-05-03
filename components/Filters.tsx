@@ -5,10 +5,10 @@ import React, { useState, useEffect } from 'react'
 export default function Filters({ onChange }: { onChange: (q: string) => void }) {
   const [q, setQ] = useState('')
 
-  // live search as user types
+  // live search as user types; onChange is stable (useCallback in parent)
   useEffect(() => {
     onChange(q)
-  }, [q]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [q, onChange])
 
   return (
     <div className="flex gap-2 items-center mb-6">

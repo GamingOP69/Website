@@ -70,7 +70,7 @@ function EventItem({ event: e, past = false }: { event: Event; past?: boolean })
   const day = new Date(e.date).getDate()
 
   const inner = (
-    <li className={`flex gap-4 p-3 sm:p-4 rounded-lg bg-white/5 hover:bg-white/8 border border-transparent hover:border-gray-700 transition-all ${past ? '' : 'cursor-pointer'}`}>
+    <li className={`flex gap-4 p-3 sm:p-4 rounded-lg bg-white/5 hover:bg-white/8 border border-transparent hover:border-gray-700 transition-all ${e.link ? 'cursor-pointer' : ''}`}>
       <div className={`flex-shrink-0 w-12 h-12 rounded-lg flex flex-col items-center justify-center ${past ? 'bg-gray-700/30 text-gray-500' : 'bg-primary/20 text-primary'}`}>
         <span className="text-xs font-semibold leading-tight">{month}</span>
         <span className="text-lg font-bold leading-tight">{day}</span>

@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import Filters from './Filters'
 
 function getVideoId(v: any): string {
@@ -11,7 +11,7 @@ function getVideoId(v: any): string {
 export default function VideoLister({ initial }: { initial: any[] }) {
   const [items, setItems] = useState(initial)
 
-  function handleFilter(q: string) {
+  const handleFilter = useCallback((q: string) => {
     if (!q) return setItems(initial)
     const filtered = initial.filter((v) => {
       const title = (v.snippet?.title || '').toLowerCase()
@@ -19,7 +19,7 @@ export default function VideoLister({ initial }: { initial: any[] }) {
       return title.includes(q.toLowerCase()) || tags.some((t: string) => t.includes(q.toLowerCase()))
     })
     setItems(filtered)
-  }
+  }, [initial])
 
   if (initial.length === 0) {
     return (
