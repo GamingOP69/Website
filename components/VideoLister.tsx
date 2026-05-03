@@ -3,12 +3,24 @@
 import React, { useState, useCallback } from 'react'
 import Filters from './Filters'
 
-function getVideoId(v: any): string {
+// Minimal shape that covers both the Search API (id.videoId) and Video API (id string) responses
+type YtVideoItem = {
+  id: string | { videoId?: string }
+  snippet?: {
+    title?: string
+    thumbnails?: {
+      medium?: { url?: string }
+    }
+    tags?: string[]
+  }
+}
+
+function getVideoId(v: YtVideoItem): string {
   if (typeof v.id === 'string') return v.id
   return v.id?.videoId ?? ''
 }
 
-export default function VideoLister({ initial }: { initial: any[] }) {
+export default function VideoLister({ initial }: { initial: YtVideoItem[] }) {
   const [items, setItems] = useState(initial)
 
   const handleFilter = useCallback((q: string) => {
@@ -47,7 +59,7 @@ export default function VideoLister({ initial }: { initial: any[] }) {
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-          {items.map((v) => {
+          {items.map((v, i) => {
             const videoId = getVideoId(v)
             const thumbnail =
               v.snippet?.thumbnails?.medium?.url ||
@@ -56,7 +68,7 @@ export default function VideoLister({ initial }: { initial: any[] }) {
 
             return (
               <a
-                key={videoId || title}
+                key={videoId || i}
                 href={`https://www.youtube.com/watch?v=${videoId}`}
                 target="_blank"
                 rel="noopener noreferrer"

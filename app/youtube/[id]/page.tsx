@@ -3,7 +3,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
-type PageParams = { id: string }
+type VideoPageParams = { id: string }
 
 async function fetchVideo(id: string) {
   const key = process.env.YT_API_KEY || ''
@@ -19,7 +19,7 @@ async function fetchVideo(id: string) {
   }
 }
 
-export async function generateMetadata({ params }: { params: Promise<PageParams> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<VideoPageParams> }): Promise<Metadata> {
   const { id } = await params
   const vid = await fetchVideo(id)
   if (!vid) return { title: 'Video Not Found – GamingOP' }
@@ -53,7 +53,7 @@ function formatDuration(iso: string | undefined): string {
   return `${m}:${String(s).padStart(2, '0')}`
 }
 
-export default async function VideoPage({ params }: { params: Promise<PageParams> }) {
+export default async function VideoPage({ params }: { params: Promise<VideoPageParams> }) {
   const { id } = await params
   const vid = await fetchVideo(id)
   if (!vid) notFound()

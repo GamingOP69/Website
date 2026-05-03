@@ -1,6 +1,23 @@
 import React from 'react'
 
-function getVideoId(v: any): string {
+// Minimal shape that covers both the Search API (id.videoId) and Video API (id string) responses
+type YtVideoItem = {
+  id: string | { videoId?: string }
+  snippet?: {
+    title?: string
+    publishedAt?: string
+    thumbnails?: {
+      medium?: { url?: string }
+      default?: { url?: string }
+    }
+    tags?: string[]
+  }
+  statistics?: {
+    viewCount?: string | number
+  }
+}
+
+function getVideoId(v: YtVideoItem): string {
   if (typeof v.id === 'string') return v.id
   return v.id?.videoId ?? ''
 }
@@ -26,10 +43,10 @@ function formatViews(n: string | number | undefined): string {
   return `${num} views`
 }
 
-export default function PopularVideos({ videos }: { videos: any[] }) {
+export default function PopularVideos({ videos }: { videos: YtVideoItem[] }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-      {videos.map((v) => {
+      {videos.map((v, i) => {
         const videoId = getVideoId(v)
         const thumbnail =
           v.snippet?.thumbnails?.medium?.url ||
@@ -41,7 +58,7 @@ export default function PopularVideos({ videos }: { videos: any[] }) {
 
         return (
           <a
-            key={videoId || title}
+            key={videoId || i}
             href={`https://www.youtube.com/watch?v=${videoId}`}
             target="_blank"
             rel="noopener noreferrer"
