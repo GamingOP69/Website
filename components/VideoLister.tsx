@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState, useCallback } from 'react'
+import Link from 'next/link'
 import Filters from './Filters'
 
 // Minimal shape that covers both the Search API (id.videoId) and Video API (id string) responses
@@ -67,11 +68,9 @@ export default function VideoLister({ initial }: { initial: YtVideoItem[] }) {
             const title = v.snippet?.title ?? 'Untitled'
 
             return (
-              <a
+              <Link
                 key={videoId || i}
-                href={`https://www.youtube.com/watch?v=${videoId}`}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={`/youtube/${videoId}`}
                 className="group block rounded-xl overflow-hidden glass hover:shadow-glow transition-all duration-300 no-underline"
               >
                 <div className="relative overflow-hidden">
@@ -88,7 +87,7 @@ export default function VideoLister({ initial }: { initial: YtVideoItem[] }) {
                 <div className="p-3 sm:p-4">
                   <h3 className="font-semibold text-sm sm:text-base text-white line-clamp-2 leading-snug">{title}</h3>
                 </div>
-              </a>
+              </Link>
             )
           })}
         </div>

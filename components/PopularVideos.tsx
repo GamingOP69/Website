@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 // Minimal shape that covers both the Search API (id.videoId) and Video API (id string) responses
 type YtVideoItem = {
@@ -57,11 +58,9 @@ export default function PopularVideos({ videos }: { videos: YtVideoItem[] }) {
         const viewCount = v.statistics?.viewCount
 
         return (
-          <a
+          <Link
             key={videoId || i}
-            href={`https://www.youtube.com/watch?v=${videoId}`}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={`/youtube/${videoId}`}
             className="group block rounded-xl overflow-hidden glass hover:shadow-glow transition-all duration-300 no-underline"
           >
             <div className="relative overflow-hidden">
@@ -75,7 +74,7 @@ export default function PopularVideos({ videos }: { videos: YtVideoItem[] }) {
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-12 h-12 bg-primary/90 rounded-full flex items-center justify-center text-white text-xl pl-1">▶</span>
               </div>
               {viewCount && (
-                <div className="absolute bottom-2 right-2 text-xs bg-black/70 text-white px-1.5 py-0.5 rounded">
+                <div className="absolute bottom-2 right-2 text-xs bg-black/90 text-white px-1.5 py-0.5 rounded">
                   {formatViews(viewCount)}
                 </div>
               )}
@@ -86,7 +85,7 @@ export default function PopularVideos({ videos }: { videos: YtVideoItem[] }) {
                 <p className="text-xs text-gray-400 mt-1.5">{formatTimeAgo(publishedAt)}</p>
               )}
             </div>
-          </a>
+          </Link>
         )
       })}
     </div>

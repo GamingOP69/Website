@@ -59,9 +59,9 @@ export default function Header() {
           aria-label="Toggle menu"
           aria-expanded={isOpen}
         >
-          <span className={`block w-5 h-0.5 bg-primary transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-          <span className={`block w-5 h-0.5 bg-primary transition-all duration-300 ${isOpen ? 'opacity-0 scale-x-0' : ''}`}></span>
-          <span className={`block w-5 h-0.5 bg-primary transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+          <span aria-hidden="true" className={`block w-5 h-0.5 bg-primary transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+          <span aria-hidden="true" className={`block w-5 h-0.5 bg-primary transition-all duration-300 ${isOpen ? 'opacity-0 scale-x-0' : ''}`}></span>
+          <span aria-hidden="true" className={`block w-5 h-0.5 bg-primary transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
         </button>
       </div>
 
