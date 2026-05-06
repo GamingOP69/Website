@@ -78,9 +78,11 @@ npm start
 │   ├── youtube/page.tsx   # Videos list
 │   ├── youtube/[id]/      # Video detail
 │   ├── about/page.tsx     # About
+│   ├── privacy/page.tsx   # Privacy Policy
+│   ├── terms/page.tsx     # Terms of Service
 │   └── server-status/page.tsx
 ├── components/            # UI components
-│   ├── Hero.tsx, VideoGrid.tsx
+│   ├── Hero.tsx, PopularVideos.tsx
 │   ├── ServerStatus.tsx, ContactForm.tsx
 │   ├── DiscordWidget.tsx, EventsList.tsx
 │   └── ...
@@ -89,9 +91,10 @@ npm start
 │   ├── minecraft.ts     # Server status
 │   ├── trending.ts      # Trending algorithm
 │   └── contact.ts       # Contact form
+├── public/data/         # Editable content
+│   └── events.json      # ← Edit this to manage events
 ├── lib/                 # Helpers
 ├── styles/globals.css   # Tailwind + glass
-├── middleware.ts        # Security headers
 ├── DEPLOYMENT.md        # 📖 Full deploy guide
 └── README_SCAFFOLD.md   # 📖 Detailed setup
 ```
@@ -129,11 +132,16 @@ See [.env.example](./.env.example) for all options.
 
 | Page | URL | Features |
 |------|-----|----------|
-| **Home** | `/` | Hero, latest videos, popular, events, server status |
-| **Videos** | `/youtube` | Filter by game/tag, trending |
+| **Home** | `/` | Hero, latest videos, trending, events, server status |
+| **Videos** | `/youtube` | Live search, all videos |
 | **Video Detail** | `/youtube/[id]` | Embedded player, stats, description |
-| **Server** | `/server-status` | Live player count, join instructions, BedWars info |
-| **About** | `/about` | Bio, career, portfolio |
+| **Server** | `/server-status` | Live player count, join guide, server rules |
+| **About** | `/about` | Bio, content focus, social links |
+| **Privacy Policy** | `/privacy` | Full privacy policy |
+| **Terms of Service** | `/terms` | Terms of service |
+
+> **Redirects**: `/video`, `/videos` → `/youtube` · `/server` → `/server-status`
+
 
 ## 🔗 API Routes
 
@@ -166,7 +174,73 @@ See [.env.example](./.env.example) for all options.
 
 Lighthouse scores (target): 90+ Performance, 95+ SEO, 100 Accessibility
 
-## 🚀 Deploy Steps
+## 🎉 Managing Events (Site Owner Guide)
+
+Events shown on the home page are stored in a simple JSON file — no coding required to add, edit, or delete them.
+
+### Location
+```
+public/data/events.json
+```
+
+### Format
+Each event is an object in the JSON array:
+
+```json
+[
+  {
+    "id": 1,
+    "title": "Event Name",
+    "date": "2026-06-01",
+    "desc": "Short description of the event.",
+    "link": "https://optional-link.com"
+  }
+]
+```
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| `id` | ✅ | Unique number — increment for each new event |
+| `title` | ✅ | Event name shown on the card |
+| `date` | ✅ | Date in `YYYY-MM-DD` format |
+| `desc` | ✅ | Short description (1–2 sentences) |
+| `link` | ❌ | Optional URL — makes the event card clickable |
+
+### How To
+
+**Add a new event** — copy an existing entry, paste it at the top of the array, change the `id` to a new number, and fill in your details.
+
+**Edit an event** — find the entry by `id` and change any field.
+
+**Delete an event** — remove the entire `{ ... }` object. Make sure the remaining items are comma-separated correctly.
+
+**Past events** — the site automatically moves any event with a past date to a "Past Events" section. You can leave them or delete them.
+
+### Example
+```json
+[
+  {
+    "id": 3,
+    "title": "Summer Tournament",
+    "date": "2026-07-10",
+    "desc": "1v1 Bedwars tournament with prizes for top 3 players.",
+    "link": "https://discord.gg/Ezd32s4P8H"
+  },
+  {
+    "id": 2,
+    "title": "Community Game Night",
+    "date": "2026-05-22",
+    "desc": "Join the GamingOP server for BedWars and squads.",
+    "link": ""
+  }
+]
+```
+
+> **Tip:** After saving the file, commit and push to GitHub. Vercel will re-deploy automatically within ~30 seconds.
+
+---
+
+
 
 ### Vercel (Recommended)
 **[Full step-by-step guide → DEPLOYMENT.md](./DEPLOYMENT.md)**

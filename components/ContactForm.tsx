@@ -6,7 +6,7 @@ export default function ContactForm() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
-  const [status, setStatus] = useState<string | null>(null)
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
 
   async function submit(e: React.FormEvent) {
     e.preventDefault()
@@ -17,34 +17,89 @@ export default function ContactForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, message })
       })
-      await r.json()
-      if (r.ok) setStatus('sent')
-      else setStatus('error')
+      if (r.ok) {
+        setStatus('sent')
+        setName('')
+        setEmail('')
+        setMessage('')
+      } else {
+        setStatus('error')
+      }
     } catch {
       setStatus('error')
     }
   }
 
+  if (status === 'sent') {
+    return (
+      <div className="glass p-8 sm:p-10 rounded-2xl text-center space-y-3">
+        <div className="text-4xl">✅</div>
+        <h3 className="text-lg font-bold text-white">Message Sent!</h3>
+        <p className="text-gray-400 text-sm">Thanks for reaching out. We&apos;ll get back to you soon.</p>
+        <button
+          onClick={() => setStatus('idle')}
+          className="btn btn-ghost text-sm mt-2"
+        >
+          Send another message
+        </button>
+      </div>
+    )
+  }
+
   return (
-    <form onSubmit={submit} className="glass p-4 rounded-md max-w-xl">
-      <h3 className="font-bold mb-3">Contact</h3>
-      <label className="block mb-2">
-        <span className="text-sm text-gray-300">Name</span>
-        <input value={name} onChange={(e) => setName(e.target.value)} className="w-full mt-1 p-2 rounded bg-black/30" />
+    <form onSubmit={submit} className="glass p-6 sm:p-8 rounded-2xl space-y-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <label className="block space-y-1.5">
+          <span className="text-sm font-medium text-gray-300">Name</span>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Your name"
+            className="w-full"
+          />
+        </label>
+        <label className="block space-y-1.5">
+          <span className="text-sm font-medium text-gray-300">Email <span className="text-primary">*</span></span>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            placeholder="your@email.com"
+            className="w-full"
+          />
+        </label>
+      </div>
+
+      <label className="block space-y-1.5">
+        <span className="text-sm font-medium text-gray-300">Message <span className="text-primary">*</span></span>
+        <textarea
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          required
+          placeholder="What's on your mind? Collab ideas, support questions, feedback…"
+          rows={5}
+          className="w-full resize-none"
+        />
       </label>
-      <label className="block mb-2">
-        <span className="text-sm text-gray-300">Email *</span>
-        <input value={email} onChange={(e) => setEmail(e.target.value)} required className="w-full mt-1 p-2 rounded bg-black/30" />
-      </label>
-      <label className="block mb-2">
-        <span className="text-sm text-gray-300">Message *</span>
-        <textarea value={message} onChange={(e) => setMessage(e.target.value)} required className="w-full mt-1 p-2 rounded bg-black/30" rows={5} />
-      </label>
-      <div className="mt-3">
-        <button type="submit" className="px-4 py-2 bg-primary rounded">Send</button>
-        {status === 'sending' && <span className="ml-3 text-sm">Sending...</span>}
-        {status === 'sent' && <span className="ml-3 text-sm text-green-400">Sent!</span>}
-        {status === 'error' && <span className="ml-3 text-sm text-red-400">Error</span>}
+
+      <div className="flex items-center gap-4">
+        <button
+          type="submit"
+          disabled={status === 'sending'}
+          className="btn btn-primary disabled:opacity-60 disabled:cursor-not-allowed"
+        >
+          {status === 'sending' ? (
+            <span className="flex items-center gap-2">
+              <span className="inline-block w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
+              Sending…
+            </span>
+          ) : 'Send Message'}
+        </button>
+        {status === 'error' && (
+          <span className="text-sm text-red-400">Something went wrong. Please try again.</span>
+        )}
       </div>
     </form>
   )
