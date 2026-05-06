@@ -30,7 +30,7 @@ export default function PrivacyPage() {
             <ul>
               <li><strong>Contact Information:</strong> Name and email address when you use our contact form.</li>
               <li><strong>Usage Data:</strong> Anonymous analytics data such as pages visited, time spent, and browser type via Vercel Analytics.</li>
-              <li><strong>Cookies:</strong> Standard browser cookies for site functionality. We do not use tracking cookies for advertising.</li>
+              <li><strong>Cookies:</strong> We use cookies for site functionality and for advertising via Google AdSense. Advertising cookies may be used to serve you personalized ads based on your interests.</li>
             </ul>
           </Section>
 
@@ -45,6 +45,7 @@ export default function PrivacyPage() {
           <Section title="4. Third-Party Services">
             <p>Our Site uses the following third-party services that may collect data according to their own privacy policies:</p>
             <ul>
+              <li><strong>Google AdSense:</strong> We display advertisements served by Google AdSense. Google may use cookies and similar technologies to serve ads based on your prior visits to our site or other sites. You can opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Google Ads Settings</a>. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>.</li>
               <li><strong>YouTube API:</strong> We use the YouTube Data API to display video content. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>.</li>
               <li><strong>Discord:</strong> We embed a Discord widget. See <a href="https://discord.com/privacy" target="_blank" rel="noopener noreferrer">Discord Privacy Policy</a>.</li>
               <li><strong>Vercel Analytics:</strong> Anonymous performance and usage analytics. See <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Vercel Privacy Policy</a>.</li>
@@ -73,7 +74,12 @@ export default function PrivacyPage() {
             <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated revision date. Continued use of the Site after changes constitutes acceptance of the updated policy.</p>
           </Section>
 
-          <Section title="9. Contact Us">
+          <Section title="9. Advertising & Cookies">
+            <p>This site uses Google AdSense to display advertisements. Google AdSense uses cookies to serve ads based on your previous visits to this and other websites. You can opt out of personalized advertising at <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Google Ads Settings</a> or by visiting <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">aboutads.info</a>.</p>
+            <p>We display a cookie consent banner on your first visit. You may decline personalized advertising at any time. However, non-personalized ads may still be shown.</p>
+          </Section>
+
+          <Section title="10. Contact Us">
             <p>If you have questions about this Privacy Policy, please reach out via our <Link href="/#contact" className="text-primary hover:text-accent">contact form</Link>.</p>
           </Section>
         </div>

@@ -1,10 +1,12 @@
 import '../styles/globals.css'
 import React from 'react'
 import { Metadata, Viewport } from 'next'
+import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import CookieConsent from '../components/CookieConsent'
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -96,12 +98,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="language" content="English" />
         <meta name="author" content="GamingOP" />
       </head>
+      {/* TODO: Replace ca-pub-XXXXXXXXXXXXXXXXX with your actual Google AdSense publisher ID */}
+      <Script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXXX"
+        crossOrigin="anonymous"
+        strategy="afterInteractive"
+      />
       <body className="bg-bg text-white min-h-screen antialiased flex flex-col">
         <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col min-h-screen">
           <Header />
           <div className="flex-grow">{children}</div>
           <Footer />
         </div>
+        <CookieConsent />
         <Analytics />
         <SpeedInsights />
       </body>
