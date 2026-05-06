@@ -8,6 +8,7 @@ import PopularVideos from '../components/PopularVideos'
 import DiscordWidget from '../components/DiscordWidget'
 import EventsList from '../components/EventsList'
 import ContactForm from '../components/ContactForm'
+import AdBanner from '../components/AdBanner'
 
 export default function Home() {
   const [videos, setVideos] = useState<any[]>([])
@@ -86,6 +87,10 @@ export default function Home() {
         )}
       </section>
 
+      {/* Ad banner between Latest Videos and Trending Now */}
+      {/* TODO: Replace 0000000001 with your actual AdSense ad slot ID */}
+      <AdBanner adSlot="0000000001" adFormat="horizontal" className="my-2" />
+
       <section className="animate-fade-in">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-3">
           <h2 className="heading-lg">Trending Now</h2>
@@ -111,6 +116,10 @@ export default function Home() {
         )}
       </section>
 
+      {/* Ad banner between Trending Now and Community sections */}
+      {/* TODO: Replace 0000000002 with your actual AdSense ad slot ID */}
+      <AdBanner adSlot="0000000002" adFormat="auto" className="my-2" />
+
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10 animate-fade-in">
         <div className="lg:col-span-2 space-y-10 sm:space-y-14">
           <section>
@@ -131,6 +140,9 @@ export default function Home() {
               <h2 className="heading-md mb-4">Minecraft Server</h2>
               <ServerStatus server="mc.gamingop.qzz.io" />
             </section>
+            {/* Sidebar ad */}
+            {/* TODO: Replace 0000000003 with your actual AdSense ad slot ID */}
+            <AdBanner adSlot="0000000003" adFormat="rectangle" />
           </div>
         </aside>
       </div>
