@@ -1,6 +1,7 @@
 import React from 'react'
 import { Metadata } from 'next'
 import VideoLister from '../../components/VideoLister'
+import AdBanner from '../../components/AdBanner'
 import { fetchLatestVideos } from '../../lib/youtube'
 
 export const metadata: Metadata = {
@@ -27,6 +28,8 @@ export default async function YoutubeIndex() {
           Browse the latest GamingOP content. Search by game or topic below.
         </p>
       </div>
+      {/* TODO: Replace 0000000004 with your actual AdSense ad slot ID */}
+      <AdBanner adSlot="0000000004" adFormat="horizontal" className="mb-8" />
       <VideoLister initial={videos} />
     </main>
   )
