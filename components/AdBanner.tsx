@@ -10,7 +10,7 @@ interface AdBannerProps {
 }
 
 // TODO: Replace ca-pub-XXXXXXXXXXXXXXXXX with your actual Google AdSense publisher ID
-const ADSENSE_CLIENT = 'ca-pub-XXXXXXXXXXXXXXXXX'
+const ADSENSE_CLIENT = 'ca-pub-2778216399702742'
 const STORAGE_KEY = 'gamingop_cookie_consent'
 
 export default function AdBanner({
