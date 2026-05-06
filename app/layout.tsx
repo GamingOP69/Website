@@ -101,7 +101,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       {/* TODO: Replace ca-pub-XXXXXXXXXXXXXXXXX with your actual Google AdSense publisher ID */}
       <Script
         async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXXX"
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2778216399702742"
         crossOrigin="anonymous"
         strategy="afterInteractive"
       />
