@@ -78,16 +78,20 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://gamingop.qzz.io'
+  },
+  other: {
+    'google-adsense-account': 'ca-pub-2778216399702742'
   }
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+
   return (
     <html lang="en" className="scroll-smooth">
       <head>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="google-adsense-account" content="ca-pub-2778216399702742" />
         <link rel="canonical" href="https://gamingop.qzz.io" />
         <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="alternate icon" href="/favicon.ico" />
@@ -101,15 +105,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="creator" content="GamingOP" />
         <meta name="publisher" content="GamingOP" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-        <meta name="google-site-verification" content="your-verification-code" />
+        {googleSiteVerification ? <meta name="google-site-verification" content={googleSiteVerification} /> : null}
+        <Script
+          id="google-adsense"
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2778216399702742"
+          crossOrigin="anonymous"
+          strategy="beforeInteractive"
+        />
       </head>
-      {/* TODO: Replace ca-pub-XXXXXXXXXXXXXXXXX with your actual Google AdSense publisher ID */}
-      <Script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2778216399702742"
-        crossOrigin="anonymous"
-        strategy="afterInteractive"
-      />
       <body className="bg-bg text-white min-h-screen antialiased flex flex-col">
         <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col min-h-screen">
           <Header />

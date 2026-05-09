@@ -2,4 +2,4 @@
 # Format follows app-ads.txt specification: https://iabtechlab.com/app-ads-txt/
 
 # Google Mobile Ads
-google.com, ca-pub-2778216399702742, DIRECT, f08c47fec0942fa0
+google.com, pub-2778216399702742, DIRECT, f08c47fec0942fa0

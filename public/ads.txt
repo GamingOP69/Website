@@ -3,7 +3,7 @@
 # More information about ads.txt: https://iabtechlab.com/ads-txt/
 
 # Google AdSense
-google.com, ca-pub-2778216399702742, DIRECT, f08c47fec0942fa0
+google.com, pub-2778216399702742, DIRECT, f08c47fec0942fa0
 
 # Direct deals can be added below
 # Company Domain, Publisher ID, Relationship Type, Certification ID
