@@ -48,7 +48,7 @@ npm start
 
 ## 📚 Documentation
 
-- **[README_SCAFFOLD.md](./README_SCAFFOLD.md)** — Project structure, features, customization
+- **[ARCHITECTURE.md](./ARCHITECTURE.md)** — Codebase structure, components, data flow, and design patterns
 - **[DEPLOYMENT.md](./DEPLOYMENT.md)** — Complete Vercel deployment guide with:
   - Step-by-step setup
   - Custom domain instructions
@@ -58,6 +58,14 @@ npm start
   - DNS nameserver guide (GoDaddy, Namecheap, etc.)
   - SSL/HTTPS verification
   - Sitemap & SEO enhancement
+
+- **[ADSENSE.md](./ADSENSE.md)** — Google AdSense monetization guide with:
+  - AdSense integration setup
+  - Publisher ID configuration
+  - Ads.txt and robots.txt setup
+  - Cloudflare compatibility
+  - Content quality guidelines
+  - Monetization best practices
 
 ## 🛠️ Tech Stack
 
@@ -95,8 +103,9 @@ npm start
 │   └── events.json      # ← Edit this to manage events
 ├── lib/                 # Helpers
 ├── styles/globals.css   # Tailwind + glass
-├── DEPLOYMENT.md        # 📖 Full deploy guide
-└── README_SCAFFOLD.md   # 📖 Detailed setup
+├── DEPLOYMENT.md        # 📖 Vercel deployment
+├── ARCHITECTURE.md      # 📖 Codebase structure
+└── ADSENSE.md          # 📖 AdSense monetization
 ```
 
 ## 🌍 Environment Variables
