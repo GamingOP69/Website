@@ -1,5 +1,5 @@
 # Robots.txt for GamingOP Gaming Website
-# Last updated: 2024
+# Last updated: 2026
 # Domain: gamingop.qzz.io
 # Hosted behind Cloudflare CDN
 

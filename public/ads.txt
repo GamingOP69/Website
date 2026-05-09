@@ -1,5 +1,5 @@
 # Ads.txt file for GamingOP (gamingop.qzz.io)
-# Updated: 2024
+# Updated: 2026
 # More information about ads.txt: https://iabtechlab.com/ads-txt/
 
 # Google AdSense
