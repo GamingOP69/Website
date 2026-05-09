@@ -22,7 +22,7 @@ export default function TermsPage() {
           </div>
 
           <Section title="1. Acceptance of Terms">
-            <p>By accessing or using the GamingOP website at gamingop.com (the &ldquo;Site&rdquo;), you agree to be bound by these Terms of Service (&ldquo;Terms&rdquo;). If you do not agree to these Terms, please do not use the Site.</p>
+            <p>By accessing or using the GamingOP website at gamingop.qzz.io (the &ldquo;Site&rdquo;), you agree to be bound by these Terms of Service (&ldquo;Terms&rdquo;). If you do not agree to these Terms, please do not use the Site.</p>
           </Section>
 
           <Section title="2. Use of the Site">
