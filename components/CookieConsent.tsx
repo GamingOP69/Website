@@ -5,15 +5,15 @@ import React, { useEffect, useState } from 'react'
 const STORAGE_KEY = 'gamingop_cookie_consent'
 
 export default function CookieConsent() {
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState<boolean | null>(null)
 
   useEffect(() => {
     try {
-      if (!localStorage.getItem(STORAGE_KEY)) {
-        setVisible(true)
-      }
+      const consented = localStorage.getItem(STORAGE_KEY)
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setVisible(!consented)
     } catch {
-      // localStorage not available
+      setVisible(true)
     }
   }, [])
 
