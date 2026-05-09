@@ -19,7 +19,7 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://gamingop.com'),
+  metadataBase: new URL('https://gamingop.qzz.io'),
   title: 'GamingOP - Gaming Creator & Minecraft Server',
   description: 'GamingOP - YouTube creator, Minecraft server hub, and gaming community. Watch gameplay, join the server, and connect with the community.',
   keywords: ['GamingOP', 'Minecraft', 'YouTube', 'Gaming', 'Free Fire', 'Valorant', 'Gaming Community', 'Gaming Server', 'Streamer'],
@@ -41,20 +41,20 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://gamingop.com',
+    url: 'https://gamingop.qzz.io',
     siteName: 'GamingOP',
     title: 'GamingOP - Gaming Creator & Minecraft Server',
     description: 'Join the GamingOP gaming community. YouTube content, Minecraft server, and more.',
     images: [
       {
-        url: 'https://gamingop.com/banner.png',
+        url: 'https://gamingop.qzz.io/banner.png',
         width: 1983,
         height: 793,
         alt: 'GamingOP Banner',
         type: 'image/png'
       },
       {
-        url: 'https://gamingop.com/logo.png',
+        url: 'https://gamingop.qzz.io/logo.png',
         width: 1254,
         height: 1254,
         alt: 'GamingOP Logo',
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'GamingOP - Gaming Creator',
     description: 'Watch gaming content and join our Minecraft server',
-    images: ['https://gamingop.com/banner.png']
+    images: ['https://gamingop.qzz.io/banner.png']
   },
   icons: {
     icon: [
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     shortcut: '/favicon.ico'
   },
   alternates: {
-    canonical: 'https://gamingop.com'
+    canonical: 'https://gamingop.qzz.io'
   }
 }
 
@@ -87,7 +87,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <link rel="canonical" href="https://gamingop.com" />
+        <meta name="google-adsense-account" content="ca-pub-2778216399702742" />
+        <link rel="canonical" href="https://gamingop.qzz.io" />
         <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="alternate icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" type="image/png" />
@@ -97,6 +98,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="language" content="English" />
         <meta name="author" content="GamingOP" />
+        <meta name="creator" content="GamingOP" />
+        <meta name="publisher" content="GamingOP" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="google-site-verification" content="your-verification-code" />
       </head>
       {/* TODO: Replace ca-pub-XXXXXXXXXXXXXXXXX with your actual Google AdSense publisher ID */}
       <Script
