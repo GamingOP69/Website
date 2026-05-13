@@ -16,6 +16,23 @@ const nextConfig = {
     ]
   },
 
+  async rewrites() {
+    return {
+      beforeFiles: [
+        // Serve ads.txt from API to bypass Cloudflare challenges
+        {
+          source: '/ads.txt',
+          destination: '/api/ads',
+        },
+        // Serve app-ads.txt from API to bypass Cloudflare challenges
+        {
+          source: '/app-ads.txt',
+          destination: '/api/app-ads',
+        },
+      ],
+    }
+  },
+
   async headers() {
     return [
       {
@@ -45,6 +62,70 @@ const nextConfig = {
           {
             key: 'Strict-Transport-Security',
             value: 'max-age=31536000; includeSubDomains'
+          }
+        ]
+      },
+      // Special headers for ads.txt to bypass Cloudflare challenges
+      {
+        source: '/ads.txt',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'text/plain; charset=utf-8'
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600, must-revalidate'
+          },
+          {
+            key: 'X-Robots-Tag',
+            value: 'all'
+          }
+        ]
+      },
+      // Special headers for app-ads.txt to bypass Cloudflare challenges
+      {
+        source: '/app-ads.txt',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'text/plain; charset=utf-8'
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600, must-revalidate'
+          },
+          {
+            key: 'X-Robots-Tag',
+            value: 'all'
+          }
+        ]
+      },
+      // Special headers for robots.txt
+      {
+        source: '/robots.txt',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'text/plain; charset=utf-8'
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600, must-revalidate'
+          }
+        ]
+      },
+      // Special headers for sitemap.xml
+      {
+        source: '/sitemap.xml',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'application/xml; charset=utf-8'
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600, must-revalidate'
           }
         ]
       },
