@@ -2,9 +2,7 @@ import React from 'react'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import AdBanner from '../../../components/AdBanner'
 import { SITE_URL, SOCIAL_LINKS } from '../../../lib/site'
-import { AD_SLOTS } from '../../../lib/site'
 
 type VideoPageParams = { id: string }
 
@@ -122,8 +120,6 @@ export default async function VideoPage({ params }: { params: Promise<VideoPageP
               </div>
             )}
 
-            <AdBanner adSlot={AD_SLOTS.videoDetailTop} adFormat="horizontal" className="my-3" />
-
             {/* Tags */}
             {snippet.tags && snippet.tags.length > 0 && (
               <div className="flex flex-wrap gap-2">
@@ -134,8 +130,6 @@ export default async function VideoPage({ params }: { params: Promise<VideoPageP
                 ))}
               </div>
             )}
-
-            <AdBanner adSlot={AD_SLOTS.videoDetailBottom} adFormat="horizontal" className="my-3" />
           </div>
 
           {/* Sidebar */}

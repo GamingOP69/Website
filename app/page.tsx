@@ -8,8 +8,7 @@ import PopularVideos from '../components/PopularVideos'
 import DiscordWidget from '../components/DiscordWidget'
 import EventsList from '../components/EventsList'
 import ContactForm from '../components/ContactForm'
-import AdBanner from '../components/AdBanner'
-import { AD_SLOTS, MINECRAFT_SERVER, SOCIAL_LINKS } from '../lib/site'
+import { MINECRAFT_SERVER, SOCIAL_LINKS } from '../lib/site'
 import { guides } from '../lib/guides'
 
 type VideoItem = {
@@ -128,8 +127,6 @@ export default function Home() {
     <main className="space-y-10 py-5 sm:space-y-12 sm:py-8">
       <Hero />
 
-      <AdBanner adSlot={AD_SLOTS.homeHero} adFormat="horizontal" className="my-3" />
-
       <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {quickLinks.map((item) => (
           <Link key={item.href} href={item.href} className="surface block p-4 no-underline hover:border-primary/60">
@@ -154,8 +151,6 @@ export default function Home() {
         </div>
       </section>
 
-      <AdBanner adSlot={AD_SLOTS.homeValueCards} adFormat="horizontal" className="my-3" />
-
       <section className="space-y-5">
         <SectionHeading
           title="Latest Videos"
@@ -165,8 +160,6 @@ export default function Home() {
         />
         {loading ? <VideoSkeleton count={8} /> : videos.length === 0 ? <YoutubeFallback /> : <PopularVideos videos={videos} />}
       </section>
-
-      <AdBanner adSlot={AD_SLOTS.homeVideosFeed} adFormat="horizontal" className="my-3" />
 
       <section className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_340px]">
         <div className="space-y-10">
@@ -217,12 +210,10 @@ export default function Home() {
                 Vote for the server
               </a>
             </section>
-            <AdBanner adSlot={AD_SLOTS.homeSidebar} adFormat="rectangle" />
           </div>
         </aside>
       </section>
 
-      <AdBanner adSlot={AD_SLOTS.homeContact} adFormat="horizontal" className="my-3" />
 
       <section className="surface p-5 sm:p-6">
         <h2 className="heading-md text-white">Quick answers</h2>

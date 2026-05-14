@@ -1,9 +1,8 @@
 import React from 'react'
 import { Metadata } from 'next'
 import VideoLister from '../../components/VideoLister'
-import AdBanner from '../../components/AdBanner'
 import { fetchLatestVideos, resolveChannelId } from '../../lib/youtube'
-import { AD_SLOTS, SITE_URL, SOCIAL_LINKS } from '../../lib/site'
+import { SITE_URL, SOCIAL_LINKS } from '../../lib/site'
 
 export const metadata: Metadata = {
   title: 'GamingOP Videos',
@@ -46,8 +45,6 @@ export default async function YoutubeIndex() {
         </a>
       </section>
 
-      <AdBanner adSlot={AD_SLOTS.videosTop} adFormat="horizontal" className="my-3" />
-
       <section className="surface p-5 sm:p-6">
         <h2 className="heading-md text-white">Content themes</h2>
         <div className="mt-4 grid gap-3 sm:grid-cols-2">
@@ -59,8 +56,6 @@ export default async function YoutubeIndex() {
         </div>
       </section>
 
-      <AdBanner adSlot={AD_SLOTS.videosMiddle} adFormat="horizontal" className="my-3" />
-
       <section>
         <div className="mb-5">
           <h2 className="heading-lg text-white">Video library</h2>
@@ -68,8 +63,6 @@ export default async function YoutubeIndex() {
         </div>
         <VideoLister initial={videos} />
       </section>
-
-      <AdBanner adSlot={AD_SLOTS.videosBottom} adFormat="horizontal" className="my-3" />
     </main>
   )
 }

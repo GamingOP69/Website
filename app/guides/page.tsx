@@ -1,8 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { Metadata } from 'next'
-import AdBanner from '../../components/AdBanner'
-import { AD_SLOTS, SITE_URL } from '../../lib/site'
+import { SITE_URL } from '../../lib/site'
 import { guides } from '../../lib/guides'
 
 export const metadata: Metadata = {
@@ -34,8 +33,6 @@ export default function GuidesPage() {
         </div>
       </section>
 
-      <AdBanner adSlot={AD_SLOTS.guidesTop} adFormat="horizontal" className="my-3" />
-
       <section className="grid gap-4 sm:grid-cols-2">
         {guides.map((guide) => (
           <Link
@@ -52,10 +49,8 @@ export default function GuidesPage() {
             <p className="mt-2 text-sm leading-6 text-gray-400">{guide.description}</p>
             <span className="mt-5 inline-flex text-sm font-semibold text-primary">Read guide</span>
           </Link>
-        ))}
+        ))}  
       </section>
-
-      <AdBanner adSlot={AD_SLOTS.guidesBottom} adFormat="horizontal" className="my-3" />
     </main>
   )
 }

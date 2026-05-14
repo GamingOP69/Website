@@ -1,8 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { Metadata } from 'next'
-import AdBanner from '../../components/AdBanner'
-import { SITE_URL, SOCIAL_LINKS, AD_SLOTS } from '../../lib/site'
+import { SITE_URL, SOCIAL_LINKS } from '../../lib/site'
 
 export const metadata: Metadata = {
   title: 'Merch Lab - GamingOP',
@@ -83,8 +82,6 @@ export default function ShopPage() {
           </div>
         </div>
       </section>
-
-      <AdBanner adSlot={AD_SLOTS.shopTop} adFormat="horizontal" className="my-3" />
 
       <section className="surface p-5 sm:p-6">
         <h2 className="heading-md text-white">Merch FAQ</h2>

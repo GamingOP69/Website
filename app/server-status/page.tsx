@@ -1,9 +1,8 @@
 import React from 'react'
 import { Metadata } from 'next'
 import Link from 'next/link'
-import AdBanner from '../../components/AdBanner'
 import ServerStatus from '../../components/ServerStatus'
-import { AD_SLOTS, MINECRAFT_SERVER, SITE_URL, SOCIAL_LINKS } from '../../lib/site'
+import { MINECRAFT_SERVER, SITE_URL, SOCIAL_LINKS } from '../../lib/site'
 
 export const metadata: Metadata = {
   title: 'Minecraft Server Status - GamingOP',
@@ -37,7 +36,6 @@ export default function ServerPage() {
         <div className="space-y-5">
           <ServerStatus server={MINECRAFT_SERVER} showDetails />
 
-          <AdBanner adSlot={AD_SLOTS.serverStatusTop} adFormat="horizontal" className="my-3" />
 
           <div className="surface p-5 sm:p-6">
             <h2 className="heading-md text-white">How to join</h2>
@@ -62,10 +60,6 @@ export default function ServerPage() {
             </Link>
           </div>
 
-          <AdBanner adSlot={AD_SLOTS.serverStatusBottom} adFormat="horizontal" className="my-3" />
-        </div>
-
-        <aside className="space-y-5">
           <div className="surface p-5 sm:p-6">
             <h2 className="heading-md text-white">Server actions</h2>
             <div className="mt-4 space-y-3">
@@ -78,6 +72,9 @@ export default function ServerPage() {
             </div>
           </div>
 
+        </div>
+
+        <aside className="space-y-5">
           <div className="surface p-5 sm:p-6">
             <h2 className="heading-md text-white">Server rules</h2>
             <ul className="mt-4 space-y-3 text-sm leading-6 text-gray-300">
