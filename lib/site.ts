@@ -18,11 +18,11 @@ export const ADSENSE_CLIENT =
   process.env.NEXT_PUBLIC_ADSENSE_CLIENT || 'ca-pub-2778216399702742'
 
 export const AD_SLOTS = {
-  homeFeed: process.env.NEXT_PUBLIC_ADSENSE_SLOT_HOME_FEED || '',
-  homeSidebar: process.env.NEXT_PUBLIC_ADSENSE_SLOT_HOME_SIDEBAR || '',
-  videosTop: process.env.NEXT_PUBLIC_ADSENSE_SLOT_VIDEOS_TOP || '',
-  guidesTop: process.env.NEXT_PUBLIC_ADSENSE_SLOT_GUIDES_TOP || '',
-  guideDetail: process.env.NEXT_PUBLIC_ADSENSE_SLOT_GUIDE_DETAIL || '',
-  videoDetail: process.env.NEXT_PUBLIC_ADSENSE_SLOT_VIDEO_DETAIL || '',
-  toolsTop: process.env.NEXT_PUBLIC_ADSENSE_SLOT_TOOLS_TOP || '',
+  homeFeed: '',
+  homeSidebar: '',
+  videosTop: '',
+  guidesTop: '',
+  guideDetail: '',
+  videoDetail: '',
+  toolsTop: '',
 }
