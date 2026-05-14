@@ -97,6 +97,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="alternate icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" type="image/png" />
         <link rel="manifest" href="/manifest.json" />
+        {/* Performance hints */}
+        <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+        <link rel="preconnect" href="https://unpkg.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://unpkg.com" />
         <meta name="description" content="GamingOP - YouTube creator, Minecraft server hub, and gaming community. Watch gameplay, join the server, and connect with the community." />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
