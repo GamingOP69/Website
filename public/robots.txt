@@ -1,7 +1,6 @@
 # Robots.txt for GamingOP Gaming Website
-# Last updated: 2026
+# Last updated: 2026-05-14
 # Domain: gamingop.qzz.io
-# Hosted behind Cloudflare CDN
 
 # Allow all crawlers to index the website
 User-agent: *
@@ -26,22 +25,5 @@ Allow: /
 Disallow: /.next/
 Disallow: /node_modules/
 
-# Block bad bots
-User-agent: AhrefsBot
-Disallow: /
-
-User-agent: SemrushBot
-Disallow: /
-
-User-agent: DotBot
-Disallow: /
-
-# Crawl delay (in seconds) - be friendly to crawlers
-Crawl-delay: 1
-
 # Sitemap locations
 Sitemap: https://gamingop.qzz.io/sitemap.xml
-Sitemap: https://gamingop.qzz.io/sitemap-videos.xml
-
-# Cache control headers - Cloudflare will handle these
-# Note: These are informational for Cloudflare Page Rules

@@ -1,130 +1,149 @@
 import React from 'react'
 import { Metadata } from 'next'
 import Link from 'next/link'
+import { MINECRAFT_SERVER, SITE_URL, SOCIAL_LINKS } from '../../lib/site'
 
 export const metadata: Metadata = {
-  title: 'About – GamingOP',
-  description: 'Learn about GamingOP — a gaming content creator, Minecraft server owner, and community builder.',
+  title: 'About GamingOP',
+  description:
+    'Learn about GamingOP: a gaming YouTuber, Minecraft community builder, coder, and creator of lightweight web tools.',
+  alternates: {
+    canonical: `${SITE_URL}/about`,
+  },
 }
+
+const focusAreas = [
+  {
+    title: 'Gaming videos',
+    text: 'Gameplay, highlights, creator experiments, and community-driven video ideas through the official YouTube channel.',
+  },
+  {
+    title: 'Minecraft community',
+    text: 'A public server hub with live status, voting link, join help, and a clear route to Discord support.',
+  },
+  {
+    title: 'Coder tools',
+    text: 'Small browser tools that are useful to visitors and careful with free-tier hosting limits.',
+  },
+  {
+    title: 'Written guides',
+    text: 'Original support and creator guides so the website has value even when someone is not watching a video.',
+  },
+]
+
+const trustNotes = [
+  {
+    title: 'Who',
+    text: 'GamingOP publishes the site content, the guides, and the public community links that visitors see here.',
+  },
+  {
+    title: 'How',
+    text: 'The guides, tools, and status pages are built as first-party pages so the site is useful even without embeds or social feeds.',
+  },
+  {
+    title: 'Why',
+    text: 'The goal is to give visitors a clear reason to stay: learn something, use a tool, check the server, or find the official links.',
+  },
+]
+
+const clarityPoints = [
+  'Planned merch stays labeled as coming soon until there is a real store, product, and checkout flow.',
+  'The tools are designed to run in the browser so visitors do not have to upload private images or text.',
+  'The site links out to official social pages only, so people can avoid fake copies and unofficial stores.',
+]
 
 export default function About() {
   return (
-    <main className="py-8 sm:py-12">
-      <div className="max-w-4xl mx-auto space-y-10">
+    <main className="py-6 sm:py-10 space-y-8">
+      <section className="content-band p-5 sm:p-8">
+        <p className="eyebrow">About the creator</p>
+        <h1 className="mt-3 heading-xl text-white">GamingOP</h1>
+        <p className="mt-3 max-w-3xl text-sm sm:text-base leading-7 text-gray-300">
+          GamingOP is a gaming YouTuber, Minecraft community builder, and coder. The website brings the public pieces
+          together: videos, server links, original guides, tools, and official community destinations.
+        </p>
+      </section>
 
-        {/* Hero card */}
-        <div className="glass rounded-2xl p-6 sm:p-10">
-          <h1 className="heading-xl gradient-text mb-4">About GamingOP</h1>
-          <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-2xl">
-            GamingOP is a gaming content creator, Minecraft server owner, and community builder. The channel focuses on
-            Minecraft, Free Fire, Valorant, and multi-game content — bringing high-energy gameplay, tips, and entertainment
-            to the gaming community.
-          </p>
-        </div>
-
-        {/* Stats row */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-          {[
-            { label: 'Platform', value: 'YouTube', icon: '▶' },
-            { label: 'Server', value: 'Minecraft', icon: '🟩' },
-            { label: 'Community', value: 'Discord', icon: '💬' },
-          ].map((s) => (
-            <div key={s.label} className="glass rounded-xl p-5 sm:p-6 text-center">
-              <div className="text-3xl mb-2">{s.icon}</div>
-              <p className="text-lg font-bold text-white">{s.value}</p>
-              <p className="text-sm text-gray-400">{s.label}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="glass rounded-2xl p-6 sm:p-8 space-y-4">
-            <h2 className="heading-md text-white">What We Create</h2>
-            <ul className="space-y-3 text-gray-300 text-sm sm:text-base">
-              {[
-                '🎮 Minecraft survival, SMP, and server gameplay',
-                '🔥 Free Fire ranked and highlight videos',
-                '🎯 Valorant gameplay and tips',
-                '🏆 Community events and giveaways',
-                '📺 Live streams on the Minecraft server',
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-2">{item}</li>
-              ))}
-            </ul>
+      <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {focusAreas.map((area) => (
+          <div key={area.title} className="surface p-5">
+            <h2 className="font-bold text-white">{area.title}</h2>
+            <p className="mt-2 text-sm leading-6 text-gray-400">{area.text}</p>
           </div>
+        ))}
+      </section>
 
-          <div className="glass rounded-2xl p-6 sm:p-8 space-y-4">
-            <h2 className="heading-md text-white">Minecraft Server</h2>
-            <p className="text-gray-300 text-sm sm:text-base">
-              The GamingOP Minecraft server runs 24/7 and is open to all community members. Join us for BedWars, survival,
-              and special community events.
+      <section className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_320px]">
+        <div className="surface p-5 sm:p-6">
+          <h2 className="heading-md text-white">What this site is for</h2>
+          <div className="mt-4 space-y-4 text-sm leading-7 text-gray-300">
+            <p>
+              The goal is to make GamingOP easier to explore without forcing visitors to jump between random links. A
+              new visitor can find the channel, check the Minecraft server, read practical help pages, and use simple
+              tools directly from the site.
             </p>
-            <div className="bg-black/30 rounded-lg p-4 space-y-2">
-              <p className="text-xs text-gray-400 uppercase tracking-wider">Server IP</p>
-              <p className="font-mono text-primary font-bold text-lg">mc.gamingop.qzz.io</p>
-            </div>
-            <Link href="/server-status" className="inline-block btn btn-primary text-sm no-underline">
-              Check Server Status →
-            </Link>
+            <p>
+              The site does not claim products, events, or social accounts that are not ready. Planned items are marked
+              clearly, and pages with future-only information do not show manual ad placements.
+            </p>
           </div>
         </div>
 
-        {/* Connect */}
-        <div className="glass rounded-2xl p-6 sm:p-8">
-          <h2 className="heading-md text-white mb-6">Connect With Us</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <a
-              href="https://youtube.com/@gamingop-1m?si=qZfx45xAKVPyR4gy"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 p-4 rounded-xl bg-red-500/10 border border-red-500/20 hover:border-red-500/50 transition-all no-underline group"
-            >
-              <span className="text-2xl">▶</span>
-              <div>
-                <p className="font-semibold text-white text-sm group-hover:text-red-400 transition-colors">YouTube</p>
-                <p className="text-xs text-gray-400">@gamingop-1m</p>
-              </div>
+        <aside className="surface p-5 sm:p-6">
+          <h2 className="heading-md text-white">Official links</h2>
+          <div className="mt-4 space-y-3">
+            <a href={SOCIAL_LINKS.youtube} target="_blank" rel="noopener noreferrer" className="btn btn-primary w-full no-underline">
+              YouTube
             </a>
-            <a
-              href="https://discord.gg/Ezd32s4P8H"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 p-4 rounded-xl bg-indigo-500/10 border border-indigo-500/20 hover:border-indigo-500/50 transition-all no-underline group"
-            >
-              <span className="text-2xl">💬</span>
-              <div>
-                <p className="font-semibold text-white text-sm group-hover:text-indigo-400 transition-colors">Discord</p>
-                <p className="text-xs text-gray-400">Official Community</p>
-              </div>
+            <a href={SOCIAL_LINKS.discord} target="_blank" rel="noopener noreferrer" className="btn btn-ghost w-full no-underline">
+              Discord
             </a>
-            <a
-              href="https://minecraftservers.org/server/686902"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 p-4 rounded-xl bg-green-500/10 border border-green-500/20 hover:border-green-500/50 transition-all no-underline group"
-            >
-              <span className="text-2xl">🟩</span>
-              <div>
-                <p className="font-semibold text-white text-sm group-hover:text-green-400 transition-colors">MC Servers</p>
-                <p className="text-xs text-gray-400">Vote for our server</p>
-              </div>
+            <a href={SOCIAL_LINKS.twitch} target="_blank" rel="noopener noreferrer" className="btn btn-ghost w-full no-underline">
+              Twitch
+            </a>
+            <a href={SOCIAL_LINKS.minecraftVote} target="_blank" rel="noopener noreferrer" className="btn btn-ghost w-full no-underline">
+              Vote for server
             </a>
           </div>
-        </div>
+        </aside>
+      </section>
 
-        {/* Contact CTA */}
-        <div className="glass rounded-2xl p-6 sm:p-8 text-center">
-          <h2 className="heading-md text-white mb-3">Business Inquiries & Collabs</h2>
-          <p className="text-gray-400 text-sm sm:text-base mb-5">
-            For collaborations, sponsorships, or press inquiries, reach out via the contact form.
-          </p>
-          <Link href="/#contact" className="btn btn-primary btn-lg no-underline">
-            Get In Touch
+      <section className="grid gap-4 md:grid-cols-3">
+        {trustNotes.map((item) => (
+          <div key={item.title} className="surface p-5">
+            <p className="eyebrow">{item.title}</p>
+            <p className="mt-3 text-sm leading-6 text-gray-400">{item.text}</p>
+          </div>
+        ))}
+      </section>
+
+      <section className="surface p-5 sm:p-6">
+        <h2 className="heading-md text-white">What is intentionally not here</h2>
+        <ul className="mt-4 space-y-3 text-sm leading-6 text-gray-300">
+          {clarityPoints.map((point) => (
+            <li key={point} className="flex gap-3">
+              <span className="mt-2 h-2 w-2 flex-none rounded-full bg-primary" />
+              <span>{point}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="surface p-5 sm:p-6">
+        <h2 className="heading-md text-white">Minecraft server</h2>
+        <p className="mt-3 text-sm leading-6 text-gray-400">
+          Server IP: <span className="font-mono text-white">{MINECRAFT_SERVER}</span>. Use the server status page for
+          connection checks and the Discord community for help when a launcher error needs human support.
+        </p>
+        <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+          <Link href="/server-status" className="btn btn-primary no-underline">
+            Check server status
+          </Link>
+          <Link href="/guides/minecraft-server-join-troubleshooting" className="btn btn-ghost no-underline">
+            Read join guide
           </Link>
         </div>
-
-      </div>
+      </section>
     </main>
   )
 }

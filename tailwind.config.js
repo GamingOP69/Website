@@ -10,6 +10,9 @@ module.exports = {
       colors: {
         primary: '#ff3b3b',
         accent: '#ff6b6b',
+        info: '#38bdf8',
+        success: '#22c55e',
+        warning: '#f59e0b',
         bg: '#0b0f14',
         'bg-dark': '#050809',
         'glass-light': 'rgba(255,255,255,0.05)',

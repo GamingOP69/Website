@@ -1,54 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-  
-  <!-- Homepage -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://gamingop.qzz.io/</loc>
-    <lastmod>2026-05-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-05-14</lastmod>
   </url>
-
-  <!-- YouTube/Videos Page -->
   <url>
     <loc>https://gamingop.qzz.io/youtube</loc>
-    <lastmod>2026-05-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-05-14</lastmod>
   </url>
-
-  <!-- Server Status Page -->
   <url>
     <loc>https://gamingop.qzz.io/server-status</loc>
-    <lastmod>2026-05-09</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-05-14</lastmod>
   </url>
-
-  <!-- About Page -->
+  <url>
+    <loc>https://gamingop.qzz.io/guides</loc>
+    <lastmod>2026-05-14</lastmod>
+  </url>
+  <url>
+    <loc>https://gamingop.qzz.io/guides/minecraft-server-join-troubleshooting</loc>
+    <lastmod>2026-05-14</lastmod>
+  </url>
+  <url>
+    <loc>https://gamingop.qzz.io/guides/low-lag-recording-streaming-setup</loc>
+    <lastmod>2026-05-14</lastmod>
+  </url>
+  <url>
+    <loc>https://gamingop.qzz.io/guides/gaming-community-safety-rules</loc>
+    <lastmod>2026-05-14</lastmod>
+  </url>
+  <url>
+    <loc>https://gamingop.qzz.io/guides/youtube-gaming-video-checklist</loc>
+    <lastmod>2026-05-14</lastmod>
+  </url>
+  <url>
+    <loc>https://gamingop.qzz.io/tools</loc>
+    <lastmod>2026-05-14</lastmod>
+  </url>
+  <url>
+    <loc>https://gamingop.qzz.io/tools/image-converter</loc>
+    <lastmod>2026-05-14</lastmod>
+  </url>
+  <url>
+    <loc>https://gamingop.qzz.io/tools/text-tools</loc>
+    <lastmod>2026-05-14</lastmod>
+  </url>
   <url>
     <loc>https://gamingop.qzz.io/about</loc>
-    <lastmod>2026-05-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-05-14</lastmod>
   </url>
-
-  <!-- Privacy Policy -->
   <url>
     <loc>https://gamingop.qzz.io/privacy</loc>
-    <lastmod>2026-05-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-05-14</lastmod>
   </url>
-
-  <!-- Terms of Service -->
   <url>
     <loc>https://gamingop.qzz.io/terms</loc>
-    <lastmod>2026-05-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-05-14</lastmod>
   </url>
-
 </urlset>

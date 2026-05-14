@@ -6,6 +6,7 @@ export default function ContactForm() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
+  const [website, setWebsite] = useState('')
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
 
   async function submit(e: React.FormEvent) {
@@ -15,13 +16,14 @@ export default function ContactForm() {
       const r = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message })
+        body: JSON.stringify({ name, email, message, website })
       })
       if (r.ok) {
         setStatus('sent')
         setName('')
         setEmail('')
         setMessage('')
+        setWebsite('')
       } else {
         setStatus('error')
       }
@@ -32,8 +34,8 @@ export default function ContactForm() {
 
   if (status === 'sent') {
     return (
-      <div className="glass p-8 sm:p-10 rounded-2xl text-center space-y-3">
-        <div className="text-4xl">✅</div>
+      <div className="surface space-y-3 p-8 text-center sm:p-10">
+        <div className="text-3xl text-primary">Sent</div>
         <h3 className="text-lg font-bold text-white">Message Sent!</h3>
         <p className="text-gray-400 text-sm">Thanks for reaching out. We&apos;ll get back to you soon.</p>
         <button
@@ -47,7 +49,17 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={submit} className="glass p-6 sm:p-8 rounded-2xl space-y-5">
+    <form onSubmit={submit} className="surface space-y-5 p-6 sm:p-8">
+      <label className="hidden">
+        Website
+        <input
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={website}
+          onChange={(event) => setWebsite(event.target.value)}
+        />
+      </label>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <label className="block space-y-1.5">
           <span className="text-sm font-medium text-gray-300">Name</span>
@@ -78,7 +90,7 @@ export default function ContactForm() {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           required
-          placeholder="What's on your mind? Collab ideas, support questions, feedback…"
+          placeholder="What's on your mind? Collab ideas, support questions, feedback..."
           rows={5}
           className="w-full resize-none"
         />
@@ -93,7 +105,7 @@ export default function ContactForm() {
           {status === 'sending' ? (
             <span className="flex items-center gap-2">
               <span className="inline-block w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
-              Sending…
+              Sending...
             </span>
           ) : 'Send Message'}
         </button>

@@ -11,7 +11,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   res.setHeader('X-Robots-Tag', 'all')
   
   const adsTxt = `# Ads.txt file for GamingOP (gamingop.qzz.io)
-# Updated: 2026
+# Updated: 2026-05-14
 # More information about ads.txt: https://iabtechlab.com/ads-txt/
 
 # Google AdSense - Primary Publisher

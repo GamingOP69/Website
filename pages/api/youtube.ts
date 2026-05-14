@@ -1,8 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { resolveChannelId } from '../../lib/youtube'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const key = process.env.YT_API_KEY
-  const channel = process.env.YT_CHANNEL_ID
+  const channel = key ? await resolveChannelId(key, process.env.YT_CHANNEL_ID || '') : ''
   if (!key || !channel) return res.status(500).json({ error: 'missing env' })
 
   const max = Number(req.query.max || 8)
@@ -31,9 +32,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   let url = ''
   if (mode === 'latest') {
-    url = `https://www.googleapis.com/youtube/v3/search?key=${key}&channelId=${channel}&part=snippet,id&order=date&maxResults=${max}`
+    url = `https://www.googleapis.com/youtube/v3/search?key=${key}&channelId=${channel}&part=snippet,id&order=date&type=video&maxResults=${max}`
   } else if (mode === 'popular') {
-    url = `https://www.googleapis.com/youtube/v3/search?key=${key}&channelId=${channel}&part=snippet,id&order=viewCount&maxResults=${max}`
+    url = `https://www.googleapis.com/youtube/v3/search?key=${key}&channelId=${channel}&part=snippet,id&order=viewCount&type=video&maxResults=${max}`
   } else if (mode === 'live') {
     url = `https://www.googleapis.com/youtube/v3/search?key=${key}&channelId=${channel}&part=snippet,id&eventType=live&type=video&maxResults=${max}`
   } else {

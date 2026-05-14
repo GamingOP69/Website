@@ -1,81 +1,94 @@
 import React from 'react'
 import { Metadata } from 'next'
+import Link from 'next/link'
+import AdBanner from '../../components/AdBanner'
 import ServerStatus from '../../components/ServerStatus'
+import { AD_SLOTS, MINECRAFT_SERVER, SITE_URL, SOCIAL_LINKS } from '../../lib/site'
 
 export const metadata: Metadata = {
-  title: 'Server Status – GamingOP',
-  description: 'Check the live status of the GamingOP Minecraft server — mc.gamingop.qzz.io',
+  title: 'Minecraft Server Status - GamingOP',
+  description: `Check the live status of the GamingOP Minecraft server and learn how to join ${MINECRAFT_SERVER}.`,
+  alternates: {
+    canonical: `${SITE_URL}/server-status`,
+  },
 }
+
+const rules = [
+  'No hacking, cheating, or unfair client modifications.',
+  'No harassment, hate speech, spam, or personal attacks.',
+  'Do not grief builds, steal items, or abuse other players.',
+  'Follow event rules and moderator instructions.',
+  'Use Discord support with screenshots and exact error messages when you need help.',
+]
 
 export default function ServerPage() {
   return (
-    <main className="py-8 sm:py-12">
-      <div className="max-w-2xl mx-auto space-y-8">
+    <main className="py-6 sm:py-10 space-y-8">
+      <section className="content-band p-5 sm:p-8">
+        <p className="eyebrow">Live Minecraft hub</p>
+        <h1 className="mt-3 heading-xl text-white">GamingOP Minecraft Server</h1>
+        <p className="mt-3 max-w-3xl text-sm sm:text-base leading-7 text-gray-300">
+          Check current server status, copy the server address, read the join steps, and use official support links if
+          your client cannot connect.
+        </p>
+      </section>
 
-        {/* Header */}
-        <div>
-          <h1 className="heading-xl text-white mb-2">Minecraft Server</h1>
-          <p className="text-gray-400 text-sm sm:text-base">
-            Live status of the GamingOP Minecraft server. Status refreshes every 30 seconds.
-          </p>
+      <section className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_340px]">
+        <div className="space-y-5">
+          <ServerStatus server={MINECRAFT_SERVER} showDetails />
+
+          <AdBanner adSlot={AD_SLOTS.homeFeed} adFormat="horizontal" className="my-2" />
+
+          <div className="surface p-5 sm:p-6">
+            <h2 className="heading-md text-white">How to join</h2>
+            <ol className="mt-4 space-y-4 text-sm sm:text-base text-gray-300">
+              {[
+                'Open Minecraft and go to Multiplayer.',
+                'Choose Add Server.',
+                `Paste the server address: ${MINECRAFT_SERVER}`,
+                'Save it, refresh the server list, then join when the status is online.',
+                'If it fails, check the troubleshooting guide before changing many settings.',
+              ].map((step, index) => (
+                <li key={step} className="flex items-start gap-3">
+                  <span className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-md bg-primary/20 text-xs font-bold text-primary">
+                    {index + 1}
+                  </span>
+                  <span>{step}</span>
+                </li>
+              ))}
+            </ol>
+            <Link href="/guides/minecraft-server-join-troubleshooting" className="btn btn-ghost mt-5 no-underline">
+              Open troubleshooting guide
+            </Link>
+          </div>
         </div>
 
-        {/* Status widget */}
-        <ServerStatus server="mc.gamingop.qzz.io" showDetails />
+        <aside className="space-y-5">
+          <div className="surface p-5 sm:p-6">
+            <h2 className="heading-md text-white">Server actions</h2>
+            <div className="mt-4 space-y-3">
+              <a href={SOCIAL_LINKS.minecraftVote} target="_blank" rel="noopener noreferrer" className="btn btn-primary w-full no-underline">
+                Vote for the server
+              </a>
+              <a href={SOCIAL_LINKS.discord} target="_blank" rel="noopener noreferrer" className="btn btn-ghost w-full no-underline">
+                Get help on Discord
+              </a>
+            </div>
+          </div>
 
-        {/* How to join */}
-        <div className="glass rounded-2xl p-6 sm:p-8 space-y-5">
-          <h2 className="heading-md text-white">How to Join</h2>
-          <ol className="space-y-4 text-sm sm:text-base text-gray-300">
-            {[
-              'Launch Minecraft (Java or Bedrock Edition).',
-              'Click Multiplayer on the main menu.',
-              'Click Add Server.',
-              <>Enter the server address: <span className="font-mono text-primary font-bold">mc.gamingop.qzz.io</span></>,
-              'Click Done, then select the server and click Join Server.',
-            ].map((step, i) => (
-              <li key={i} className="flex items-start gap-3">
-                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/20 text-primary text-xs font-bold flex items-center justify-center mt-0.5">
-                  {i + 1}
-                </span>
-                <span>{step}</span>
-              </li>
-            ))}
-          </ol>
-        </div>
-
-        {/* Server rules */}
-        <div className="glass rounded-2xl p-6 sm:p-8 space-y-4">
-          <h2 className="heading-md text-white">Server Rules</h2>
-          <ul className="space-y-2 text-sm sm:text-base text-gray-300">
-            {[
-              '🚫 No hacking, cheating, or unauthorized mods.',
-              '🤝 Be respectful — no harassment or hate speech.',
-              '🏗️ No griefing other players\' builds.',
-              '📢 Follow moderator instructions at all times.',
-              '🎮 Have fun and enjoy the community!',
-            ].map((rule) => (
-              <li key={rule}>{rule}</li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Discord CTA */}
-        <div className="glass rounded-2xl p-6 sm:p-8 text-center">
-          <p className="text-gray-300 mb-4 text-sm sm:text-base">
-            Having trouble connecting? Ask for help in our Discord server.
-          </p>
-          <a
-            href="https://discord.gg/Ezd32s4P8H"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary no-underline"
-          >
-            💬 Join Discord for Support
-          </a>
-        </div>
-
-      </div>
+          <div className="surface p-5 sm:p-6">
+            <h2 className="heading-md text-white">Server rules</h2>
+            <ul className="mt-4 space-y-3 text-sm leading-6 text-gray-300">
+              {rules.map((rule) => (
+                <li key={rule} className="flex gap-3">
+                  <span className="mt-2 h-2 w-2 flex-none rounded-full bg-primary" />
+                  <span>{rule}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </aside>
+      </section>
     </main>
   )
 }

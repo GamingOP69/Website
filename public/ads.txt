@@ -1,9 +1,1 @@
-# Ads.txt file for GamingOP (gamingop.qzz.io)
-# Updated: 2026
-# More information about ads.txt: https://iabtechlab.com/ads-txt/
-
-# Google AdSense
 google.com, pub-2778216399702742, DIRECT, f08c47fec0942fa0
-
-# Direct deals can be added below
-# Company Domain, Publisher ID, Relationship Type, Certification ID

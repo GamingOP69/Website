@@ -1,7 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { resolveChannelId } from '../../lib/youtube'
 
 async function fetchSearch(apiKey: string, channelId: string, max = 25) {
-  const url = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=${max}`
+  const url = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&type=video&maxResults=${max}`
   const r = await fetch(url)
   if (!r.ok) throw new Error('search failed')
   return r.json()
@@ -24,7 +25,7 @@ function scoreVideo(item: any) {
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const key = process.env.YT_API_KEY
-  const channel = process.env.YT_CHANNEL_ID
+  const channel = key ? await resolveChannelId(key, process.env.YT_CHANNEL_ID || '') : ''
   if (!key || !channel) return res.status(500).json({ error: 'missing env' })
 
   try {

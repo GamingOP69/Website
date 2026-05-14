@@ -6,7 +6,7 @@ export default function SEO({ title, description, image, url }: { title?: string
   return (
     <>
       <title>{t}</title>
-      <meta name="description" content={description || 'GamingOP — YouTube creator and community hub'} />
+      <meta name="description" content={description || 'GamingOP - creator, coder, Minecraft server hub, guides, and tools'} />
       <meta property="og:title" content={t} />
       <meta property="og:description" content={description || ''} />
       {image && <meta property="og:image" content={image} />}

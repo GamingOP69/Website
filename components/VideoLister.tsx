@@ -36,7 +36,7 @@ export default function VideoLister({ initial }: { initial: YtVideoItem[] }) {
 
   if (initial.length === 0) {
     return (
-      <div className="glass p-10 rounded-xl text-center">
+      <div className="surface p-8 text-center">
         <p className="text-gray-400 text-lg mb-2">No videos available right now.</p>
         <p className="text-gray-500 text-sm">Videos will appear here once the YouTube API is configured.</p>
         <a
@@ -45,7 +45,7 @@ export default function VideoLister({ initial }: { initial: YtVideoItem[] }) {
           rel="noopener noreferrer"
           className="inline-block mt-4 btn btn-primary"
         >
-          ▶ Watch on YouTube
+          Watch on YouTube
         </a>
       </div>
     )
@@ -55,7 +55,7 @@ export default function VideoLister({ initial }: { initial: YtVideoItem[] }) {
     <div>
       <Filters onChange={handleFilter} />
       {items.length === 0 ? (
-        <div className="glass p-8 rounded-xl text-center text-gray-400">
+        <div className="surface p-8 text-center text-gray-400">
           No videos match your search.
         </div>
       ) : (
@@ -71,7 +71,7 @@ export default function VideoLister({ initial }: { initial: YtVideoItem[] }) {
               <Link
                 key={videoId || i}
                 href={`/youtube/${videoId}`}
-                className="group block rounded-xl overflow-hidden glass hover:shadow-glow transition-all duration-300 no-underline"
+                className="surface group block overflow-hidden no-underline transition-all duration-300 hover:shadow-glow"
               >
                 <div className="relative overflow-hidden">
                   <img
@@ -81,7 +81,7 @@ export default function VideoLister({ initial }: { initial: YtVideoItem[] }) {
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-12 h-12 bg-primary/90 rounded-full flex items-center justify-center text-white text-xl pl-1">▶</span>
+                    <span className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/90 pl-1 text-xl text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">▶</span>
                   </div>
                 </div>
                 <div className="p-3 sm:p-4">

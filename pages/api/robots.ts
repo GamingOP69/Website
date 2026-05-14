@@ -3,7 +3,6 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const robotsTxt = `# Robots.txt for GamingOP Gaming Website
 # Domain: gamingop.qzz.io
-# Hosted behind Cloudflare CDN
 # Generated: ${new Date().toISOString()}
 
 # Allow all crawlers to index the website
@@ -29,22 +28,8 @@ Allow: /
 Disallow: /.next/
 Disallow: /node_modules/
 
-# Block bad bots
-User-agent: AhrefsBot
-Disallow: /
-
-User-agent: SemrushBot
-Disallow: /
-
-User-agent: DotBot
-Disallow: /
-
-# Crawl delay (in seconds)
-Crawl-delay: 1
-
 # Sitemap locations
-Sitemap: https://gamingop.qzz.io/sitemap.xml
-Sitemap: https://gamingop.qzz.io/sitemap-videos.xml`
+Sitemap: https://gamingop.qzz.io/sitemap.xml`
 
   res.setHeader('Content-Type', 'text/plain')
   res.setHeader('Cache-Control', 'public, s-maxage=86400, stale-while-revalidate=604800')

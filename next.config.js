@@ -13,6 +13,8 @@ const nextConfig = {
       { source: '/video', destination: '/youtube', permanent: true },
       { source: '/videos', destination: '/youtube', permanent: true },
       { source: '/server', destination: '/server-status', permanent: true },
+      { source: '/merch', destination: '/shop', permanent: true },
+      { source: '/store', destination: '/shop', permanent: true },
     ]
   },
 

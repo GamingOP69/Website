@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useRef } from 'react'
+import { ADSENSE_CLIENT } from '../lib/site'
 
 interface AdBannerProps {
   adSlot: string
@@ -9,8 +10,6 @@ interface AdBannerProps {
   className?: string
 }
 
-// TODO: Replace ca-pub-XXXXXXXXXXXXXXXXX with your actual Google AdSense publisher ID
-const ADSENSE_CLIENT = 'ca-pub-2778216399702742'
 const STORAGE_KEY = 'gamingop_cookie_consent'
 
 export default function AdBanner({
@@ -20,8 +19,10 @@ export default function AdBanner({
   className = '',
 }: AdBannerProps) {
   const initialized = useRef(false)
+  const isPlaceholderSlot = !adSlot || /^0+$/.test(adSlot)
 
   useEffect(() => {
+    if (isPlaceholderSlot) return
     if (initialized.current) return
     initialized.current = true
     try {
@@ -45,10 +46,13 @@ export default function AdBanner({
     } catch {
       // AdSense not loaded yet
     }
-  }, [])
+  }, [isPlaceholderSlot])
+
+  if (isPlaceholderSlot) return null
 
   return (
     <div className={`ad-container overflow-hidden text-center ${className}`} aria-label="Advertisement">
+      <p className="mb-1 text-center text-[10px] uppercase text-gray-600">Advertisement</p>
       <ins
         className="adsbygoogle"
         style={{ display: 'block' }}

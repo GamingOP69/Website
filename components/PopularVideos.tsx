@@ -61,17 +61,17 @@ export default function PopularVideos({ videos }: { videos: YtVideoItem[] }) {
           <Link
             key={videoId || i}
             href={`/youtube/${videoId}`}
-            className="group block rounded-xl overflow-hidden glass hover:shadow-glow transition-all duration-300 no-underline"
+            className="surface group block overflow-hidden no-underline transition-all duration-300 hover:shadow-glow"
           >
             <div className="relative overflow-hidden">
               <img
                 src={thumbnail}
                 alt={title}
-                className="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300"
+                className="h-44 w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-12 h-12 bg-primary/90 rounded-full flex items-center justify-center text-white text-xl pl-1">▶</span>
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/90 pl-1 text-xl text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">▶</span>
               </div>
               {viewCount && (
                 <div className="absolute bottom-2 right-2 text-xs bg-black/90 text-white px-1.5 py-0.5 rounded">

@@ -28,15 +28,15 @@ export default function ServerStatus({ server, showDetails }: { server: string; 
   }, [server])
 
   if (!info) return (
-    <div className="glass p-4 rounded-xl animate-pulse-subtle text-sm text-gray-400 text-center">
-      Checking server…
+    <div className="surface p-4 animate-pulse-subtle text-center text-sm text-gray-400">
+      Checking server...
     </div>
   )
 
   const isOnline = info.online === true
 
   return (
-    <div className="glass p-5 rounded-xl space-y-4">
+    <div className="surface space-y-4 p-5">
       {/* Status row */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
@@ -54,10 +54,10 @@ export default function ServerStatus({ server, showDetails }: { server: string; 
       </div>
 
       {/* Server IP */}
-      <div className="p-3 bg-black/30 rounded-lg space-y-1">
+      <div className="space-y-1 rounded-lg bg-black/30 p-3">
         <p className="text-xs text-gray-400 uppercase tracking-wider">Server IP</p>
         <p className="font-mono text-base font-bold text-primary">{server}</p>
-        <p className="text-xs text-gray-500">Minecraft → Multiplayer → Add Server → paste IP above</p>
+        <p className="text-xs text-gray-500">Minecraft / Multiplayer / Add Server / paste IP above</p>
       </div>
 
       {showDetails && info.motd?.clean && info.motd.clean.some(Boolean) && (
