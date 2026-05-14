@@ -54,7 +54,7 @@ export default function ToolsPage() {
         </p>
       </section>
 
-      <AdBanner adSlot={AD_SLOTS.toolsTop} adFormat="horizontal" className="my-2" />
+      <AdBanner adSlot={AD_SLOTS.toolsTop} adFormat="horizontal" className="my-3" />
 
       <section className="grid gap-4 md:grid-cols-3">
         {tools.map((tool) => {
@@ -81,6 +81,8 @@ export default function ToolsPage() {
         })}
       </section>
 
+      <AdBanner adSlot={AD_SLOTS.toolsMiddle} adFormat="horizontal" className="my-3" />
+
       <section className="surface p-5 sm:p-6">
         <h2 className="heading-md text-white">Privacy-first design</h2>
         <p className="mt-3 text-sm leading-6 text-gray-400">
@@ -96,6 +98,8 @@ export default function ToolsPage() {
           ))}
         </ul>
       </section>
+
+      <AdBanner adSlot={AD_SLOTS.toolsBottom} adFormat="horizontal" className="my-3" />
     </main>
   )
 }

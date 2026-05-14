@@ -1,7 +1,8 @@
 import React from 'react'
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { MINECRAFT_SERVER, SITE_URL, SOCIAL_LINKS } from '../../lib/site'
+import AdBanner from '../../components/AdBanner'
+import { MINECRAFT_SERVER, SITE_URL, SOCIAL_LINKS, AD_SLOTS } from '../../lib/site'
 
 export const metadata: Metadata = {
   title: 'About GamingOP',
@@ -72,6 +73,8 @@ export default function About() {
           </div>
         ))}
       </section>
+
+      <AdBanner adSlot={AD_SLOTS.aboutTop} adFormat="horizontal" className="my-3" />
 
       <section className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_320px]">
         <div className="surface p-5 sm:p-6">

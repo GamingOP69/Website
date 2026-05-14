@@ -58,14 +58,21 @@ export default async function GuidePage({ params }: { params: Promise<GuideParam
           <p className="mt-3 text-sm sm:text-base leading-7 text-gray-300">{guide.description}</p>
         </header>
 
+        <AdBanner adSlot={AD_SLOTS.guideDetailTop} adFormat="horizontal" className="my-3" />
+
         <div className="surface p-5 sm:p-8">
           <div className="prose prose-invert max-w-none prose-p:text-gray-300 prose-p:leading-7 prose-h2:text-white">
-            {guide.sections.map((section) => (
+            {guide.sections.map((section, index) => (
               <section key={section.heading}>
                 <h2>{section.heading}</h2>
                 {section.body.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
+                {index === Math.floor(guide.sections.length / 2) - 1 && (
+                  <div className="my-6">
+                    <AdBanner adSlot={AD_SLOTS.guideDetailMiddle} adFormat="horizontal" />
+                  </div>
+                )}
               </section>
             ))}
           </div>
@@ -85,7 +92,7 @@ export default async function GuidePage({ params }: { params: Promise<GuideParam
           </section>
         ) : null}
 
-        <AdBanner adSlot={AD_SLOTS.guideDetail} adFormat="horizontal" className="my-2" />
+        <AdBanner adSlot={AD_SLOTS.guideDetailBottom} adFormat="horizontal" className="my-3" />
 
         <div className="flex flex-col gap-3 sm:flex-row">
           <Link href="/guides" className="btn btn-ghost no-underline">

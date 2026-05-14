@@ -37,7 +37,7 @@ export default function ServerPage() {
         <div className="space-y-5">
           <ServerStatus server={MINECRAFT_SERVER} showDetails />
 
-          <AdBanner adSlot={AD_SLOTS.homeFeed} adFormat="horizontal" className="my-2" />
+          <AdBanner adSlot={AD_SLOTS.serverStatusTop} adFormat="horizontal" className="my-3" />
 
           <div className="surface p-5 sm:p-6">
             <h2 className="heading-md text-white">How to join</h2>
@@ -61,6 +61,8 @@ export default function ServerPage() {
               Open troubleshooting guide
             </Link>
           </div>
+
+          <AdBanner adSlot={AD_SLOTS.serverStatusBottom} adFormat="horizontal" className="my-3" />
         </div>
 
         <aside className="space-y-5">

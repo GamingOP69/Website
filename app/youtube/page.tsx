@@ -59,6 +59,8 @@ export default async function YoutubeIndex() {
         </div>
       </section>
 
+      <AdBanner adSlot={AD_SLOTS.videosMiddle} adFormat="horizontal" className="my-3" />
+
       <section>
         <div className="mb-5">
           <h2 className="heading-lg text-white">Video library</h2>
@@ -66,6 +68,8 @@ export default async function YoutubeIndex() {
         </div>
         <VideoLister initial={videos} />
       </section>
+
+      <AdBanner adSlot={AD_SLOTS.videosBottom} adFormat="horizontal" className="my-3" />
     </main>
   )
 }

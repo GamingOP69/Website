@@ -122,7 +122,7 @@ export default async function VideoPage({ params }: { params: Promise<VideoPageP
               </div>
             )}
 
-            <AdBanner adSlot={AD_SLOTS.videoDetail} adFormat="horizontal" className="my-2" />
+            <AdBanner adSlot={AD_SLOTS.videoDetailTop} adFormat="horizontal" className="my-3" />
 
             {/* Tags */}
             {snippet.tags && snippet.tags.length > 0 && (
@@ -134,6 +134,8 @@ export default async function VideoPage({ params }: { params: Promise<VideoPageP
                 ))}
               </div>
             )}
+
+            <AdBanner adSlot={AD_SLOTS.videoDetailBottom} adFormat="horizontal" className="my-3" />
           </div>
 
           {/* Sidebar */}

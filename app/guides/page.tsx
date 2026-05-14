@@ -54,6 +54,8 @@ export default function GuidesPage() {
           </Link>
         ))}
       </section>
+
+      <AdBanner adSlot={AD_SLOTS.guidesBottom} adFormat="horizontal" className="my-3" />
     </main>
   )
 }
