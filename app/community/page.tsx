@@ -1,6 +1,8 @@
 import React from 'react'
 import { Metadata } from 'next'
 import Link from 'next/link'
+import CollapseList from '../../components/CollapseList'
+import AdBanner from '../../components/AdBanner'
 
 export const metadata: Metadata = {
   title: 'Community – GamingOP',
@@ -109,7 +111,10 @@ export default function CommunityPage() {
           {/* Events Section */}
           <section className="space-y-4">
             <h2 className="heading-lg text-white">Upcoming Events</h2>
-            <div className="space-y-3">
+            <div className="my-4">
+              <AdBanner adSlot="community-0001" adFormat="horizontal" className="my-2" />
+            </div>
+            <CollapseList initial={2}>
               {[
                 {
                   title: 'Minecraft Building Contest',
@@ -140,7 +145,7 @@ export default function CommunityPage() {
                   <p className="text-sm text-gray-400">{event.desc}</p>
                 </div>
               ))}
-            </div>
+            </CollapseList>
           </section>
 
           {/* Member Benefits */}

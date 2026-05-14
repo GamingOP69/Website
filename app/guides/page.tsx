@@ -2,6 +2,7 @@ import React from 'react'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import GuidesClientWrapper from '../../components/GuidesClientWrapper'
+import AdBanner from '../../components/AdBanner'
 
 export const metadata: Metadata = {
   title: 'Gaming Guides & Tips – GamingOP',
@@ -131,6 +132,11 @@ export default function GuidesPage() {
               ))}
             </div>
           </section>
+
+          {/* Ad placement */}
+          <div className="my-4">
+            <AdBanner adSlot="guides-0001" adFormat="horizontal" className="my-2" />
+          </div>
 
           {/* All Guides */}
           <GuidesClientWrapper guides={guides} />
