@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { Metadata } from 'next'
+import AdContainer from '../../components/AdContainer'
 import { SITE_URL } from '../../lib/site'
 import { guides } from '../../lib/guides'
 
@@ -33,6 +34,8 @@ export default function GuidesPage() {
         </div>
       </section>
 
+      <AdContainer placement="top" />
+
       <section className="grid gap-4 sm:grid-cols-2">
         {guides.map((guide) => (
           <Link
@@ -51,6 +54,8 @@ export default function GuidesPage() {
           </Link>
         ))}  
       </section>
+
+      <AdContainer placement="bottom" />
     </main>
   )
 }

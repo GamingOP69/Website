@@ -2,6 +2,7 @@ import React from 'react'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import ServerStatus from '../../components/ServerStatus'
+import AdContainer from '../../components/AdContainer'
 import { MINECRAFT_SERVER, SITE_URL, SOCIAL_LINKS } from '../../lib/site'
 
 export const metadata: Metadata = {
@@ -31,6 +32,8 @@ export default function ServerPage() {
           your client cannot connect.
         </p>
       </section>
+
+      <AdContainer placement="top" />
 
       <section className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_340px]">
         <div className="space-y-5">

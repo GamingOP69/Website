@@ -1,6 +1,7 @@
 import React from 'react'
 import { Metadata } from 'next'
 import Link from 'next/link'
+import AdContainer from '../../components/AdContainer'
 import { MINECRAFT_SERVER, SITE_URL, SOCIAL_LINKS } from '../../lib/site'
 
 export const metadata: Metadata = {
@@ -64,6 +65,8 @@ export default function About() {
         </p>
       </section>
 
+      <AdContainer placement="top" />
+
       <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {focusAreas.map((area) => (
           <div key={area.title} className="surface p-5">
@@ -72,6 +75,8 @@ export default function About() {
           </div>
         ))}  
       </section>
+
+      <AdContainer placement="middle" />
 
       <section className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_320px]">
         <div className="surface p-5 sm:p-6">
@@ -144,6 +149,8 @@ export default function About() {
           </Link>
         </div>
       </section>
+
+      <AdContainer placement="bottom" />
     </main>
   )
 }

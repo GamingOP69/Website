@@ -1,6 +1,7 @@
 import React from 'react'
 import { Metadata } from 'next'
 import VideoLister from '../../components/VideoLister'
+import AdContainer from '../../components/AdContainer'
 import { fetchLatestVideos, resolveChannelId } from '../../lib/youtube'
 import { SITE_URL, SOCIAL_LINKS } from '../../lib/site'
 
@@ -45,6 +46,8 @@ export default async function YoutubeIndex() {
         </a>
       </section>
 
+      <AdContainer placement="top" />
+
       <section className="surface p-5 sm:p-6">
         <h2 className="heading-md text-white">Content themes</h2>
         <div className="mt-4 grid gap-3 sm:grid-cols-2">
@@ -56,6 +59,8 @@ export default async function YoutubeIndex() {
         </div>
       </section>
 
+      <AdContainer placement="middle" />
+
       <section>
         <div className="mb-5">
           <h2 className="heading-lg text-white">Video library</h2>
@@ -63,6 +68,8 @@ export default async function YoutubeIndex() {
         </div>
         <VideoLister initial={videos} />
       </section>
+
+      <AdContainer placement="bottom" />
     </main>
   )
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { Metadata } from 'next'
+import AdContainer from '../../components/AdContainer'
 import { SITE_URL, SOCIAL_LINKS } from '../../lib/site'
 
 export const metadata: Metadata = {
@@ -58,6 +59,8 @@ export default function ShopPage() {
         </div>
       </section>
 
+      <AdContainer placement="top" />
+
       <section className="grid gap-4 md:grid-cols-2">
         <div className="surface p-5 sm:p-6">
           <h2 className="heading-md text-white">Launch checklist</h2>
@@ -109,6 +112,8 @@ export default function ShopPage() {
           </Link>
         </div>
       </section>
+
+      <AdContainer placement="bottom" />
     </main>
   )
 }

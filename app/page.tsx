@@ -8,6 +8,7 @@ import PopularVideos from '../components/PopularVideos'
 import DiscordWidget from '../components/DiscordWidget'
 import EventsList from '../components/EventsList'
 import ContactForm from '../components/ContactForm'
+import AdContainer from '../components/AdContainer'
 import { MINECRAFT_SERVER, SOCIAL_LINKS } from '../lib/site'
 import { guides } from '../lib/guides'
 
@@ -127,6 +128,8 @@ export default function Home() {
     <main className="space-y-10 py-5 sm:space-y-12 sm:py-8">
       <Hero />
 
+      <AdContainer placement="top" />
+
       <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {quickLinks.map((item) => (
           <Link key={item.href} href={item.href} className="surface block p-4 no-underline hover:border-primary/60">
@@ -151,6 +154,8 @@ export default function Home() {
         </div>
       </section>
 
+      <AdContainer placement="middle" />
+
       <section className="space-y-5">
         <SectionHeading
           title="Latest Videos"
@@ -171,6 +176,8 @@ export default function Home() {
             {trendingLoading ? <VideoSkeleton count={4} /> : trending.length === 0 ? <YoutubeFallback compact /> : <PopularVideos videos={trending} />}
           </section>
 
+          <AdContainer placement="middle" />
+
           <section className="space-y-5">
             <SectionHeading
               title="Original Guides"
@@ -189,6 +196,8 @@ export default function Home() {
             </div>
           </section>
 
+          <AdContainer placement="middle" />
+
           <section className="space-y-5">
             <SectionHeading title="Community Updates" description="Events are announced only when they are real and ready." />
             <EventsList />
@@ -203,6 +212,9 @@ export default function Home() {
         <aside className="space-y-5">
           <div className="space-y-5 lg:sticky lg:top-24">
             <DiscordWidget />
+            
+            <AdContainer placement="sidebar" />
+
             <section className="space-y-3">
               <h2 className="heading-md text-white">Minecraft Server</h2>
               <ServerStatus server={MINECRAFT_SERVER} />
@@ -210,10 +222,13 @@ export default function Home() {
                 Vote for the server
               </a>
             </section>
+
+            <AdContainer placement="sidebar" />
           </div>
         </aside>
       </section>
 
+      <AdContainer placement="bottom" />
 
       <section className="surface p-5 sm:p-6">
         <h2 className="heading-md text-white">Quick answers</h2>

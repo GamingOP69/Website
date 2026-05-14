@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { Metadata } from 'next'
+import AdContainer from '../../components/AdContainer'
 import { SITE_URL } from '../../lib/site'
 
 export const metadata: Metadata = {
@@ -52,6 +53,8 @@ export default function ToolsPage() {
         </p>
       </section>
 
+      <AdContainer placement="top" />
+
       <section className="grid gap-4 md:grid-cols-3">
         {tools.map((tool) => {
           const card = (
@@ -77,6 +80,8 @@ export default function ToolsPage() {
         })}
       </section>
 
+      <AdContainer placement="middle" />
+
       <section className="surface p-5 sm:p-6">
         <h2 className="heading-md text-white">Privacy-first design</h2>
         <p className="mt-3 text-sm leading-6 text-gray-400">
@@ -92,6 +97,8 @@ export default function ToolsPage() {
           ))}
         </ul>
       </section>
+
+      <AdContainer placement="bottom" />
 
     </main>
   )
