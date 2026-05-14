@@ -60,6 +60,79 @@ export default function Home() {
         <Hero />
       </header>
 
+      {/* About GamingOP Section */}
+      <section className="animate-fade-in glass rounded-2xl p-6 sm:p-10 space-y-4">
+        <h2 className="heading-lg text-white">About GamingOP</h2>
+        <div className="space-y-4 text-gray-300">
+          <p>
+            Welcome to GamingOP, your ultimate destination for gaming content, Minecraft server hosting, and a thriving gaming community. 
+            We are dedicated to creating high-quality gaming experiences and fostering a welcoming environment for gamers of all skill levels.
+          </p>
+          <p>
+            Our mission is to inspire, educate, and entertain the gaming community through authentic content creation, competitive Minecraft servers, 
+            and exclusive gaming guides. Whether you&apos;re a casual player or a competitive gamer, GamingOP has something for everyone.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+            {[
+              { icon: '🎮', label: '1M+ Gamers', desc: 'In our community' },
+              { icon: '📺', label: '500+ Videos', desc: 'High-quality content' },
+              { icon: '🌍', label: 'Global Reach', desc: 'Players worldwide' },
+            ].map((stat, idx) => (
+              <div key={idx} className="text-center p-3 bg-white/5 rounded-lg">
+                <div className="text-3xl mb-2">{stat.icon}</div>
+                <div className="font-semibold text-white">{stat.label}</div>
+                <div className="text-xs text-gray-400">{stat.desc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose GamingOP */}
+      <section className="animate-fade-in space-y-6">
+        <h2 className="heading-lg">Why Choose GamingOP?</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {[
+            {
+              icon: '✨',
+              title: 'Premium Content',
+              desc: 'High-quality gaming videos and tutorials created with expertise and passion',
+            },
+            {
+              icon: '🤝',
+              title: 'Thriving Community',
+              desc: 'Join thousands of gamers in our Discord server with events and competitions',
+            },
+            {
+              icon: '🏆',
+              title: 'Competitive Servers',
+              desc: 'Experience our professionally maintained Minecraft servers with active moderation',
+            },
+            {
+              icon: '📚',
+              title: 'Expert Guides',
+              desc: 'Learn from our comprehensive gaming guides and strategies for all games',
+            },
+            {
+              icon: '⚡',
+              title: 'Regular Updates',
+              desc: 'New content, server updates, and community events posted regularly',
+            },
+            {
+              icon: '🎁',
+              title: 'Exclusive Rewards',
+              desc: 'Participate in giveaways and earn exclusive rewards for members',
+            },
+          ].map((feature, idx) => (
+            <div key={idx} className="glass p-6 rounded-lg hover:bg-white/10 transition">
+              <div className="text-4xl mb-3">{feature.icon}</div>
+              <h3 className="font-semibold text-white mb-2">{feature.title}</h3>
+              <p className="text-sm text-gray-400">{feature.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className="animate-fade-in">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-3">
           <h2 className="heading-lg">Latest Videos</h2>
@@ -90,6 +163,29 @@ export default function Home() {
       {/* Ad banner between Latest Videos and Trending Now */}
       {/* TODO: Replace 0000000001 with your actual AdSense ad slot ID */}
       <AdBanner adSlot="0000000001" adFormat="horizontal" className="my-2" />
+
+      {/* Quick Links Section */}
+      <section className="animate-fade-in space-y-6">
+        <h2 className="heading-lg">Quick Links</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {[
+            { icon: '📚', title: 'Gaming Guides', desc: 'Learn tips and strategies', href: '/guides' },
+            { icon: '❓', title: 'FAQ', desc: 'Get your questions answered', href: '/faq' },
+            { icon: '💜', title: 'Community', desc: 'Join our Discord', href: '/community' },
+            { icon: '🛍️', title: 'Merchandise', desc: 'Official merch coming soon', href: '/shop' },
+          ].map((link, idx) => (
+            <Link
+              key={idx}
+              href={link.href}
+              className="glass p-4 rounded-lg hover:bg-white/10 transition no-underline group"
+            >
+              <div className="text-3xl mb-2 group-hover:scale-110 transition">{link.icon}</div>
+              <h3 className="font-semibold text-white">{link.title}</h3>
+              <p className="text-sm text-gray-400">{link.desc}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
 
       <section className="animate-fade-in">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-3">

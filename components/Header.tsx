@@ -9,6 +9,10 @@ const NAV_ITEMS = [
   { label: 'Home', href: '/' },
   { label: 'Videos', href: '/youtube' },
   { label: 'Server', href: '/server-status' },
+  { label: 'Community', href: '/community' },
+  { label: 'Guides', href: '/guides' },
+  { label: 'Shop', href: '/shop' },
+  { label: 'FAQ', href: '/faq' },
   { label: 'About', href: '/about' },
 ]
 
