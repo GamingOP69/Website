@@ -11,6 +11,7 @@ const NAV_ITEMS = [
   { label: 'Server', href: '/server-status' },
   { label: 'Community', href: '/community' },
   { label: 'Guides', href: '/guides' },
+  { label: 'Tools', href: '/tools' },
   { label: 'Shop', href: '/shop' },
   { label: 'FAQ', href: '/faq' },
   { label: 'About', href: '/about' },
