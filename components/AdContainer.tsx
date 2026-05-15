@@ -9,7 +9,11 @@ interface AdContainerProps {
 }
 
 export default function AdContainer({ placement, className = '' }: AdContainerProps) {
-  const baseClasses = 'bg-gradient-to-b from-slate-900/30 to-slate-800/20 border border-slate-700/50 rounded-lg p-4 sm:p-6 my-6 sm:my-8'
+  const enabled = process.env.NEXT_PUBLIC_ENABLE_MANUAL_AD_ZONES === 'true'
+
+  if (!enabled) return null
+
+  const baseClasses = 'border border-gray-800 rounded-lg p-3 my-6 sm:my-8 bg-black/15'
   
   const placementClasses = {
     top: 'mb-8 sm:mb-10',
@@ -25,9 +29,8 @@ export default function AdContainer({ placement, className = '' }: AdContainerPr
       role="region"
       aria-label={`Advertisement - ${placement} placement`}
     >
-      {/* Google AdSense auto-ads will detect and fill this container */}
-      <div className="min-h-[250px] sm:min-h-[300px] flex items-center justify-center text-slate-500 text-sm">
-        <p>Advertisement space</p>
+      <div className="flex min-h-[90px] items-center justify-center text-xs uppercase tracking-wide text-gray-600">
+        <p>Advertisement</p>
       </div>
     </div>
   )

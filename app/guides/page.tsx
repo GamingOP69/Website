@@ -36,6 +36,13 @@ export default function GuidesPage() {
 
       <AdContainer placement="top" />
 
+        <section className="surface p-5 sm:p-6">
+          <h2 className="heading-md text-white">Why these guides matter</h2>
+          <p className="mt-3 text-sm leading-6 text-gray-400">
+            These pages are written to solve real problems for the GamingOP audience: joining the server, recording better videos, staying safe in community spaces, and checking official links before buying or sharing anything.
+          </p>
+        </section>
+
       <section className="grid gap-4 sm:grid-cols-2">
         {guides.map((guide) => (
           <Link

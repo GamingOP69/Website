@@ -48,6 +48,11 @@ const quickLinks = [
     href: '/shop',
     description: 'Future store information with clear status and official links.',
   },
+  {
+    title: 'Creator resources',
+    href: '/resources',
+    description: 'A practical hub for visitors who want guides, tools, and honest roadmap details in one place.',
+  },
 ]
 
 const siteValueCards = [
@@ -69,6 +74,21 @@ const siteValueCards = [
   },
 ]
 
+const roadmapCards = [
+  {
+    title: 'Merch store plan',
+    body: 'The merch page explains what will be official later, how launch updates will be shared, and how visitors can avoid fake stores.',
+  },
+  {
+    title: 'Public tool roadmap',
+    body: 'Future tools may include image-to-text and file type checking, but only if they can be built honestly and kept lightweight.',
+  },
+  {
+    title: 'Community help center',
+    body: 'The guides and server pages already answer common questions so new visitors can find real help without scrolling through social feeds.',
+  },
+]
+
 const quickAnswers = [
   {
     question: 'Where should a new visitor start?',
@@ -80,7 +100,7 @@ const quickAnswers = [
   },
   {
     question: 'Is merch available now?',
-    answer: 'No. The shop page is a coming-soon placeholder until official products, pricing, and policies are ready.',
+    answer: 'No. The shop page is an information page until official products, pricing, and policies are ready.',
   },
 ]
 
@@ -154,6 +174,23 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="space-y-5">
+        <SectionHeading
+          title="What is live and what is planned"
+          description="Clear status labels help visitors understand which parts of the site are ready today and which parts are still only on the roadmap."
+          href="/resources"
+          linkText="Open resource hub"
+        />
+        <div className="grid gap-4 md:grid-cols-3">
+          {roadmapCards.map((card) => (
+            <div key={card.title} className="surface p-5">
+              <h3 className="text-base font-bold text-white">{card.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-gray-400">{card.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <AdContainer placement="middle" />
 
       <section className="space-y-5">
@@ -176,8 +213,6 @@ export default function Home() {
             {trendingLoading ? <VideoSkeleton count={4} /> : trending.length === 0 ? <YoutubeFallback compact /> : <PopularVideos videos={trending} />}
           </section>
 
-          <AdContainer placement="middle" />
-
           <section className="space-y-5">
             <SectionHeading
               title="Original Guides"
@@ -195,8 +230,6 @@ export default function Home() {
               ))}
             </div>
           </section>
-
-          <AdContainer placement="middle" />
 
           <section className="space-y-5">
             <SectionHeading title="Community Updates" description="Events are announced only when they are real and ready." />
@@ -222,8 +255,6 @@ export default function Home() {
                 Vote for the server
               </a>
             </section>
-
-            <AdContainer placement="sidebar" />
           </div>
         </aside>
       </section>

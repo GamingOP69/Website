@@ -21,7 +21,7 @@ export default function TermsPage() {
 
         <article className="surface p-5 sm:p-8">
           <h1 className="heading-xl text-white">Terms of Service</h1>
-          <p className="mt-2 text-sm text-gray-500">Last updated: May 14, 2026</p>
+          <p className="mt-2 text-sm text-gray-500">Last updated: May 15, 2026</p>
 
           <div className="prose prose-invert mt-8 max-w-none prose-p:text-gray-300 prose-li:text-gray-300 prose-a:text-primary">
             <Section title="1. Acceptance">
@@ -70,7 +70,19 @@ export default function TermsPage() {
               </p>
             </Section>
 
-            <Section title="8. Contact">
+            <Section title="8. Future Features">
+              <p>
+                New tools, roadmap pages, or future merch information may be added over time. Those sections will be labeled clearly so visitors can tell the difference between live content and planned content.
+              </p>
+            </Section>
+
+            <Section title="9. Content Ownership">
+              <p>
+                Original text, guides, page layouts, and site-specific copy on GamingOP are intended for the GamingOP website. Do not copy the site in a way that misleads users into thinking another page is the official GamingOP destination.
+              </p>
+            </Section>
+
+            <Section title="10. Contact">
               <p>
                 Questions about these terms can be sent through the <Link href="/#contact">contact form</Link>.
               </p>

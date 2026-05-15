@@ -53,6 +53,18 @@ const clarityPoints = [
   'The site links out to official social pages only, so people can avoid fake copies and unofficial stores.',
 ]
 
+const contentStandards = [
+  'Pages should explain something useful, not just repeat the same call to action in different words.',
+  'Future ideas stay marked as future ideas until they are actually built and tested.',
+  'External links are kept to official destinations that the audience can verify on the site itself.',
+]
+
+const siteSections = [
+  'Videos and channel updates for people who want the latest GamingOP uploads.',
+  'Minecraft server pages and guides for players who need connection help or fair-play rules.',
+  'Browser tools and resource pages for visitors who want something useful without downloading extra software.',
+]
+
 export default function About() {
   return (
     <main className="py-6 sm:py-10 space-y-8">
@@ -147,6 +159,32 @@ export default function About() {
           <Link href="/guides/minecraft-server-join-troubleshooting" className="btn btn-ghost no-underline">
             Read join guide
           </Link>
+        </div>
+      </section>
+
+      <section className="grid gap-4 md:grid-cols-2">
+        <div className="surface p-5 sm:p-6">
+          <h2 className="heading-md text-white">What visitors can expect here</h2>
+          <ul className="mt-4 space-y-3 text-sm leading-6 text-gray-300">
+            {siteSections.map((item) => (
+              <li key={item} className="flex gap-3">
+                <span className="mt-2 h-2 w-2 flex-none rounded-full bg-primary" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="surface p-5 sm:p-6">
+          <h2 className="heading-md text-white">Content standards</h2>
+          <ul className="mt-4 space-y-3 text-sm leading-6 text-gray-300">
+            {contentStandards.map((item) => (
+              <li key={item} className="flex gap-3">
+                <span className="mt-2 h-2 w-2 flex-none rounded-full bg-primary" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

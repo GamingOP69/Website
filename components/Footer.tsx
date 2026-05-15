@@ -22,6 +22,7 @@ export default function Footer() {
             { label: 'Videos', href: '/youtube' },
             { label: 'Guides', href: '/guides' },
             { label: 'Tools', href: '/tools' },
+            { label: 'Resources', href: '/resources' },
           ]}
         />
 

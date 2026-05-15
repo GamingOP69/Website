@@ -28,17 +28,30 @@ const tools = [
   },
   {
     title: 'Peer File Transfer',
-    href: '',
-    status: 'Planned',
+    href: '/tools/peer-file-transfer',
+    status: 'Live',
     description:
-      'A future peer-to-peer transfer tool is being explored. The idea is code-based handoff with no file storage on the site itself.',
+      'Transfer files directly between two browsers with manual WebRTC codes and no file storage on the site itself.',
   },
 ]
 
 const designNotes = [
   'Browser-only tools keep the site lighter for free-tier hosting and safer for visitors on shared devices.',
-  'The planned file transfer tool would need a clear code handoff, short-lived signaling, and no permanent file uploads.',
+  'The peer file transfer tool uses direct code handoff, short-lived signaling, and no permanent file uploads.',
   'Every tool page is meant to do one real task well instead of pretending to be a generic app directory.',
+]
+
+const plannedTools = [
+  {
+    title: 'Image to text',
+    status: 'Planned',
+    description: 'A privacy-conscious OCR helper would need to run locally or use a short-lived server path without storing user images.',
+  },
+  {
+    title: 'File type checker',
+    status: 'Planned',
+    description: 'A simple utility could inspect file signatures and tell visitors what they actually uploaded before they share it elsewhere.',
+  },
 ]
 
 export default function ToolsPage() {
@@ -96,6 +109,24 @@ export default function ToolsPage() {
             </li>
           ))}
         </ul>
+      </section>
+
+      <section className="surface p-5 sm:p-6">
+        <h2 className="heading-md text-white">Planned public tools</h2>
+        <p className="mt-3 text-sm leading-6 text-gray-400">
+          These ideas are listed as future work, not live products. They are included here so the site shows a real roadmap instead of pretending unfinished tools already exist.
+        </p>
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
+          {plannedTools.map((tool) => (
+            <div key={tool.title} className="rounded-lg border border-gray-800 bg-black/20 p-4">
+              <div className="flex items-center justify-between gap-3">
+                <h3 className="text-sm font-semibold text-white">{tool.title}</h3>
+                <span className="rounded-md border border-gray-700 px-2 py-1 text-[11px] uppercase tracking-wide text-gray-400">{tool.status}</span>
+              </div>
+              <p className="mt-2 text-sm leading-6 text-gray-400">{tool.description}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
       <AdContainer placement="bottom" />

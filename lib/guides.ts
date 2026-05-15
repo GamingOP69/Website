@@ -168,6 +168,44 @@ export const guides: Guide[] = [
       'Final watch-through before publishing.',
     ],
   },
+    {
+      slug: 'official-links-and-scam-avoidance',
+      title: 'Official Links and Scam Avoidance Guide',
+      description:
+        'A practical safety guide for checking official GamingOP links, avoiding fake merch stores, and confirming where announcements really come from.',
+      category: 'Community',
+      readingTime: '5 min read',
+      updated: 'May 15, 2026',
+      sections: [
+        {
+          heading: 'Start from known official sources',
+          body: [
+            'Use the website, YouTube channel, Discord invite, Twitch channel, or Minecraft voting link that are listed on this site. If a link comes from a random profile or DM, check it against the official pages before clicking anything important.',
+            'Do not trust shortened links or pages that copy the logo but change the handle, spelling, or checkout destination. Fake merch stores often use small changes that are easy to miss on a phone screen.',
+          ],
+        },
+        {
+          heading: 'What official announcements look like',
+          body: [
+            'Real updates will appear on this website and on the linked official community channels. A future merch launch should include product details, pricing, shipping information, and clear status labels.',
+            'If someone asks for payment in private messages, treats urgency as the main selling point, or avoids public product details, assume the link is not official until it is verified.',
+          ],
+        },
+        {
+          heading: 'What to do before buying or sharing',
+          body: [
+            'Check the exact domain name, read the page title, and compare the destination against the official links page. A few extra seconds of checking is better than paying the wrong site.',
+            'For giveaways, merch drops, or future tools, wait for a public announcement on the site or the official YouTube/Discord accounts before acting on a private message or repost.',
+          ],
+        },
+      ],
+      checklist: [
+        'Verify the domain before clicking.',
+        'Use only official links from the website.',
+        'Ignore private DMs that push purchases.',
+        'Wait for public merch or launch announcements.',
+      ],
+    },
 ]
 
 export function getGuide(slug: string) {

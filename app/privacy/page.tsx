@@ -21,7 +21,7 @@ export default function PrivacyPage() {
 
         <article className="surface p-5 sm:p-8">
           <h1 className="heading-xl text-white">Privacy Policy</h1>
-          <p className="mt-2 text-sm text-gray-500">Last updated: May 14, 2026</p>
+          <p className="mt-2 text-sm text-gray-500">Last updated: May 15, 2026</p>
 
           <div className="prose prose-invert mt-8 max-w-none prose-p:text-gray-300 prose-li:text-gray-300 prose-a:text-primary">
             <Section title="1. Overview">
@@ -83,7 +83,19 @@ export default function PrivacyPage() {
               </p>
             </Section>
 
-            <Section title="8. Contact">
+            <Section title="8. Your Choices">
+              <p>
+                You can choose not to submit the contact form, leave the page if you do not want cookies used by third-party services, and manage ad personalization in your Google account settings. Browser-based tools on this site do not require uploads to use their basic functions.
+              </p>
+            </Section>
+
+            <Section title="9. Security and Access">
+              <p>
+                The site uses standard hosting and analytics services to deliver pages, measure performance, and keep the community resources available. We do not ask for passwords or payment information through the website forms.
+              </p>
+            </Section>
+
+            <Section title="10. Contact">
               <p>
                 For privacy questions, use the <Link href="/#contact">contact form</Link>.
               </p>

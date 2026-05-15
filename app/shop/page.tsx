@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
 import { Metadata } from 'next'
-import AdContainer from '../../components/AdContainer'
 import { SITE_URL, SOCIAL_LINKS } from '../../lib/site'
 
 export const metadata: Metadata = {
@@ -12,7 +11,7 @@ export const metadata: Metadata = {
     canonical: `${SITE_URL}/shop`,
   },
   robots: {
-    index: false,
+    index: true,
     follow: true,
   },
 }
@@ -39,6 +38,21 @@ const faq = [
   },
 ]
 
+const merchIdeas = [
+  {
+    title: 'Starter items',
+    text: 'If the store opens, simple logo stickers, shirts, and community drops are the most realistic first products.',
+  },
+  {
+    title: 'Safety checks',
+    text: 'Only the website, YouTube channel, or Discord should announce a launch. Random DMs and lookalike profiles are not official.',
+  },
+  {
+    title: 'Store quality',
+    text: 'A real launch should include product photos, pricing, shipping details, refund policy, and a checkout flow that works on mobile.',
+  },
+]
+
 export default function ShopPage() {
   return (
     <main className="py-6 sm:py-10 space-y-8">
@@ -59,8 +73,6 @@ export default function ShopPage() {
         </div>
       </section>
 
-      <AdContainer placement="top" />
-
       <section className="grid gap-4 md:grid-cols-2">
         <div className="surface p-5 sm:p-6">
           <h2 className="heading-md text-white">Launch checklist</h2>
@@ -75,14 +87,25 @@ export default function ShopPage() {
         </div>
 
         <div className="surface p-5 sm:p-6">
-          <h2 className="heading-md text-white">What may come first</h2>
+          <h2 className="heading-md text-white">What a real launch needs</h2>
           <p className="mt-3 text-sm leading-6 text-gray-400">
-            Early merch ideas may include creator logo stickers, simple shirts, and community event drops. Nothing is
-            listed as available until real product details are ready.
+            The future store should feel like a proper product page. That means honest photos, a clear return policy, and a checkout flow that works on smaller screens.
           </p>
-          <div className="mt-5 rounded-lg border border-gray-800 bg-black/20 p-4 text-sm text-gray-400">
-            Current status: no products for sale, no cart, no checkout, and no payment collection on this page.
+          <div className="mt-5 grid gap-3">
+            {merchIdeas.map((idea) => (
+              <div key={idea.title} className="rounded-lg border border-gray-800 bg-black/20 p-4">
+                <h3 className="text-sm font-semibold text-white">{idea.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-gray-400">{idea.text}</p>
+              </div>
+            ))}
           </div>
+        </div>
+      </section>
+
+      <section className="surface p-5 sm:p-6">
+        <h2 className="heading-md text-white">Current status</h2>
+        <div className="mt-4 rounded-lg border border-gray-800 bg-black/20 p-4 text-sm leading-6 text-gray-300">
+          No products for sale, no cart, no checkout, and no payment collection on this page yet. The page exists to set expectations, reduce scam risk, and give the community a clear place to check for future updates.
         </div>
       </section>
 
@@ -112,8 +135,6 @@ export default function ShopPage() {
           </Link>
         </div>
       </section>
-
-      <AdContainer placement="bottom" />
     </main>
   )
 }

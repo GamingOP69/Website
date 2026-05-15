@@ -21,6 +21,12 @@ const rules = [
   'Use Discord support with screenshots and exact error messages when you need help.',
 ]
 
+const statusNotes = [
+  'If the status widget shows offline, the server may be restarting or temporarily unavailable for maintenance.',
+  'If the ping looks slow but the server is online, refresh the page once before changing any client settings.',
+  'When connection errors keep repeating, the troubleshooting guide is usually more useful than changing random Minecraft options.',
+]
+
 export default function ServerPage() {
   return (
     <main className="py-6 sm:py-10 space-y-8">
@@ -85,6 +91,18 @@ export default function ServerPage() {
                 <li key={rule} className="flex gap-3">
                   <span className="mt-2 h-2 w-2 flex-none rounded-full bg-primary" />
                   <span>{rule}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="surface p-5 sm:p-6">
+            <h2 className="heading-md text-white">What the status means</h2>
+            <ul className="mt-4 space-y-3 text-sm leading-6 text-gray-300">
+              {statusNotes.map((note) => (
+                <li key={note} className="flex gap-3">
+                  <span className="mt-2 h-2 w-2 flex-none rounded-full bg-primary" />
+                  <span>{note}</span>
                 </li>
               ))}
             </ul>
